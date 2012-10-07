@@ -109,12 +109,15 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
     'south',
+    'grappelli',
+    'django.contrib.admin',
 )
+
+GRAPPELLI_ADMIN_TITLE = 'Link database'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
