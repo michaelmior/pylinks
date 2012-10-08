@@ -102,6 +102,7 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'pylinks.links',
+    'pylinks.feeds',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
