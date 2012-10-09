@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from pylinks.main.models import DatedModel
 
 
@@ -8,8 +9,7 @@ class Category(DatedModel):
     description = models.TextField(null=True)
 
     def get_absolute_url(self):
-        # TODO Add URL of category page
-        return u''
+        return reverse('category_links', kwargs={'slug': self.slug})
 
     def __unicode__(self):
         return self.title

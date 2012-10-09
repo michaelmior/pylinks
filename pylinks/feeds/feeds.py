@@ -1,5 +1,6 @@
 from django.contrib.syndication.views import Feed
 from django.shortcuts import get_object_or_404
+from django.core.urlresolvers import reverse
 from pylinks.links.models import Category, Link
 
 
@@ -42,8 +43,7 @@ class RecentFeed(BaseFeed):
         return 'Recent links'
 
     def link(self):
-        # TODO Add recent links page
-        return u''
+        return reverse('recent_links')
 
     def items(self):
         return Link.objects.order_by('-created_time')[:30]

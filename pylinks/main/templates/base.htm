@@ -1,7 +1,13 @@
 <!DOCTYPE HTML>
+{% load macros %}
+
+{% macro title %}
+  {% block title %}{% endblock %}
+{% endmacro %}
+
 <html>
   <head>
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% usemacro title %}</title>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css">
   </head>
   <body>
@@ -18,7 +24,26 @@
     </div>
     <div class="container">
       <div class="row">
+        <h1>{% usemacro title %}</h1>
         {% block content %}{% endblock %}
+
+        {% if is_paginated %}
+          <div class="pagination">
+            <ul>
+              {% if page_obj.has_previous %}
+                <li><a>&laquo;</a></li>
+              {% endif %}
+
+              {% for page_number in paginator.page_range %}
+                <li{% ifequal page_obj.number page_number %} class="active"{% endifequal %}><a>{{ page_number }}</a></li>
+              {% endfor %}
+
+              {% if page_obj.has_next %}
+              <li><a>&raquo;</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        {% endif %}
       </div>
     </div>
   </body>

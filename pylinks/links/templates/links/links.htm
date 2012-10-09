@@ -1,0 +1,17 @@
+{% extends "base.htm" %}
+
+{% block content %}
+
+<ul>
+  {% for link in links %}
+    <li>
+    <a href="{{ link.url }}">{{ link.title }}</a>
+
+    {% if link.description %}
+      <div>{{ link.description|linebreaks }}</div>
+    {% endif %}
+    </li>
+  </ul>
+{% endfor %}
+
+{% endblock %}
