@@ -12,7 +12,6 @@ class LinkListView(ListView):
 
 
 class CategoryListView(LinkListView):
-    model = Link
     template_name = 'links/category.htm'
 
     def get(self, request, *args, **kwargs):
@@ -32,7 +31,6 @@ class CategoryListView(LinkListView):
 
 
 class RecentListView(LinkListView):
-    model = Link
     template_name = 'links/recent.htm'
 
     def get_queryset(self):
