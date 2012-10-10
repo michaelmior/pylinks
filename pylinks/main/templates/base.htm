@@ -10,6 +10,7 @@
   <head>
     <title>{% usemacro title %}</title>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css">
+    {% block styles %}{% endblock %}
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

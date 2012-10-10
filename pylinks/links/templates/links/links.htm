@@ -2,16 +2,20 @@
 
 {% block content %}
 
-<ul class="link-list">
+<ul class="link-list unstyled">
   {% for link in links %}
     <li>
     <a href="{{ link.url }}">{{ link.title }}</a>
 
     {% if link.description %}
-      <div class="link-description">{{ link.description|linebreaks }}</div>
+      <div class="link-description">{{ link.description|truncatewords:"50"|linebreaks }}</div>
     {% endif %}
     </li>
   {% endfor %}
 </ul>
 
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/links.css">
 {% endblock %}
