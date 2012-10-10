@@ -10,5 +10,9 @@ urlpatterns = patterns('pylinks.links.views',
         views.RecentListView.as_view(),
         name='recent_links'),
 
+    url(r'^popular/(?:(?P<page>\d+)/)?$',
+        views.PopularListView.as_view(),
+        name='popular_links'),
+
     url(r'^go/(?P<link_id>\d+)/$', 'track_link', name='track_link'),
 )

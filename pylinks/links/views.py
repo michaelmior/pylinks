@@ -37,6 +37,13 @@ class RecentListView(LinkListView):
         return Link.objects.all().order_by('-created_time')
 
 
+class PopularListView(LinkListView):
+    template_name = 'links/popular.htm'
+
+    def get_queryset(self):
+        return Link.objects.all().order_by('-visits')
+
+
 def track_link(request, link_id):
     try:
         link = Link.objects.select_for_update().get(pk=link_id)

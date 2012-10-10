@@ -47,3 +47,15 @@ class RecentFeed(BaseFeed):
 
     def items(self):
         return Link.objects.order_by('-created_time')[:30]
+
+
+class PopularFeed(BaseFeed):
+
+    def title(self):
+        return 'Popular links'
+
+    def link(self):
+        return reverse('popular_links')
+
+    def items(self):
+        return Link.objects.order_by('-visits')[:30]
