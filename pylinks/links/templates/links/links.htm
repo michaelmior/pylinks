@@ -5,7 +5,7 @@
 <ul class="link-list unstyled">
   {% for link in links %}
     <li>
-    <a href="{{ link.url }}">{{ link.title }}</a>
+    <a href="{{ link.get_absolute_url }}">{{ link.title }}</a>
 
     {% if link.description %}
       <div class="link-description">{{ link.description|truncatewords:"50"|linebreaks }}</div>

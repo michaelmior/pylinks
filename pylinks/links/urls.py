@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 from pylinks.links import views
 
-urlpatterns = patterns('',
+urlpatterns = patterns('pylinks.links.views',
     url(r'^category/(?P<slug>[A-z0-9_\-]*)/(?:(?P<page>\d+)/)?$',
         views.CategoryListView.as_view(),
         name='category_links'),
@@ -9,4 +9,6 @@ urlpatterns = patterns('',
     url(r'^recent/(?:(?P<page>\d+)/)?$',
         views.RecentListView.as_view(),
         name='recent_links'),
+
+    url(r'^go/(?P<link_id>\d+)/$', 'track_link', name='track_link'),
 )

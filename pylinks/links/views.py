@@ -1,5 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView
+from django.http import Http404, HttpResponseRedirect
+from django.db.models import F
 from pylinks.links.models import Category, Link
 
 
@@ -35,3 +37,15 @@ class RecentListView(LinkListView):
 
     def get_queryset(self):
         return Link.objects.all().order_by('-created_time')
+
+
+def track_link(request, link_id):
+    try:
+        link = Link.objects.select_for_update().get(pk=link_id)
+    except Link.DoesNotExist:
+        raise Http404
+
+    link.visits = F('visits') + 1
+    link.save(update_fields=['visits'])
+
+    return HttpResponseRedirect(link.url)

@@ -23,9 +23,11 @@ class Link(DatedModel):
     url = models.URLField(verbose_name='URL')
     category = models.ForeignKey(Category, null=True, related_name='links')
     description = models.TextField(null=True)
+    visits = models.IntegerField(default=0,
+            help_text='Number of visitors who clicked on this link')
 
     def get_absolute_url(self):
-        return self.url
+        return reverse('track_link', args=(self.id,))
 
     def __unicode__(self):
         return self.title
