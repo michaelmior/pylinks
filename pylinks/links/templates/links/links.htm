@@ -2,16 +2,16 @@
 
 {% block content %}
 
-<ul>
+<ul class="link-list">
   {% for link in links %}
     <li>
     <a href="{{ link.url }}">{{ link.title }}</a>
 
     {% if link.description %}
-      <div>{{ link.description|linebreaks }}</div>
+      <div class="link-description">{{ link.description|linebreaks }}</div>
     {% endif %}
     </li>
-  </ul>
-{% endfor %}
+  {% endfor %}
+</ul>
 
 {% endblock %}
