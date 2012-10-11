@@ -89,6 +89,8 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'pylinks.main.context_processors.site',
+
     'django.core.context_processors.static',
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.request',
