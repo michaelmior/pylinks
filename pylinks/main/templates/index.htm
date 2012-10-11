@@ -1,1 +1,22 @@
 {% extends "base.htm" %}
+{% load columns %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Categories</h2>
+
+<div class="row">
+  {% for column in categories|columns:"3" %}
+    <div class="span4">
+      <ul class="unstyled">
+        {% for category in column %}
+          <li><h3>
+            <a href="{{ category.get_absolute_url }}">{{ category.title }}</a> ({{ category.links.count }})
+          </h3></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
