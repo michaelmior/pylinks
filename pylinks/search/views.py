@@ -5,6 +5,8 @@ from haystack.views import SearchView
 
 
 class SearchView(SearchView):
+    template = 'search/search.htm'
+
     def build_page(self):
         page = self.request.resolver_match.kwargs.get('page') or self.request.GET.get('page') or 1
         try:

@@ -1,4 +1,5 @@
 {% extends "base.htm" %}
+{% load highlight %}
 
 {% block title %}
 {% if query %}
@@ -19,7 +20,7 @@
       <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
 
       {% if result.object.description %}
-        <div class="link-description">{{ result.object.description|truncatewords:"50"|linebreaks }}</div>
+        <div class="link-description">{% highlight result.object.description with query css_class "text-info" max_length 500 %}</div>
       {% endif %}
     </li>
   {% endfor %}
