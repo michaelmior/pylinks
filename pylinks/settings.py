@@ -1,4 +1,6 @@
 # Django settings for pylinks project.
+import os
+import dj_database_url
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -9,8 +11,14 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-import dj_database_url
 DATABASES = {'default': dj_database_url.config(default='postgres://pylinks:pylinks@localhost/pylinks')}
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -112,6 +120,7 @@ INSTALLED_APPS = (
     'pylinks.main',
     'pylinks.links',
     'pylinks.feeds',
+    'pylinks.search',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,6 +131,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
+    'haystack',
     'south',
     'grappelli',
     'django.contrib.admin',

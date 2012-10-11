@@ -13,6 +13,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^feed/', include('pylinks.feeds.urls')),
     url(r'^links/', include('pylinks.links.urls')),
+    url(r'^search/', include('pylinks.search.urls')),
     url(r'^', include('pylinks.main.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

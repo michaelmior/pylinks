@@ -26,7 +26,11 @@ class CategoryListView(LinkListView):
         # Just add the category to the context
         context = super(CategoryListView, self) \
                     .get_context_data(*args, **kwargs)
+
         context['category'] = self.category
+        context['page'] = context['page_obj']
+        del context['page_obj']
+
         return context
 
 

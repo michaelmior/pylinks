@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 {% load macros %}
-{% load self_url %}
+{% load page_url %}
 
 {% macro title %}
   {% block title %}{% endblock %}
@@ -17,9 +17,12 @@
       <div class="navbar-inner">
         <div class="container">
           <div class="nav-collapse collapse">
-            <ul class="nav">
+            <div class="nav">
               <a class="brand" href="#">Link database</a>
-            </ul>
+            </div>
+            <form action="{% url "haystack_search" %}" class="navbar-search pull-right">
+              <input name="q" type="text" class="search-query" placeholder="Search" value="{{ query }}">
+            </form>
           </div>
         </div>
       </div>
@@ -32,18 +35,18 @@
         {% if is_paginated %}
           <div class="pagination">
             <ul>
-              {% if page_obj.has_previous %}
-                <li><a href="{% self_url page=page_obj.previous_page_number %}">&laquo;</a></li>
+              {% if page.has_previous %}
+                <li><a href="{% page_url page=page.previous_page_number %}">&laquo;</a></li>
               {% endif %}
 
               {% for page_number in paginator.page_range %}
-                <li{% ifequal page_obj.number page_number %} class="active"{% endifequal %}>
-                  <a href="{% self_url page=page_number %}">{{ page_number }}</a>
+                <li{% ifequal page.number page_number %} class="active"{% endifequal %}>
+                  <a href="{% page_url page=page_number %}">{{ page_number }}</a>
                 </li>
               {% endfor %}
 
-              {% if page_obj.has_next %}
-                <li><a href="{% self_url page=page_obj.next_page_number %}">&raquo;</a></li>
+              {% if page.has_next %}
+                <li><a href="{% page_url page=page.next_page_number %}">&raquo;</a></li>
               {% endif %}
             </ul>
           </div>

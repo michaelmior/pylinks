@@ -1,0 +1,39 @@
+{% extends "base.htm" %}
+
+{% block title %}
+{% if query %}
+  Search results for {{ query }}
+{% else %}
+  Search
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% if query %}
+
+{% if page.object_list %}
+<ul class="link-list unstyled">
+  {% for result in page.object_list %}
+    <li>
+      <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+
+      {% if result.object.description %}
+        <div class="link-description">{{ result.object.description|truncatewords:"50"|linebreaks }}</div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>No results found</p>
+{% endif %}
+
+{% else %}
+  <p>Please enter a query</p>
+{% endif %}
+
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/links.css">
+{% endblock %}
