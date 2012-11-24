@@ -2,7 +2,7 @@
 import os
 import dj_database_url
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -139,6 +139,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'gunicorn',
     'storages',
+    's3_folder_storage',
 )
 
 GRAPPELLI_ADMIN_TITLE = 'Link database'
@@ -172,8 +173,22 @@ LOGGING = {
     }
 }
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+if not DEBUG:
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    STATIC_URL = 'https://s3.amazonaws.com/static.pseupdate.mior.ca/'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
+    DEFAULT_S3_PATH = 'media'
+    STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
+    STATIC_S3_PATH = 'static'
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+
+    MEDIA_ROOT = '/%s/' % DEFAULT_S3_PATH
+    MEDIA_URL = '//s3.amazonaws.com/%s/%s/' % \
+            (AWS_STORAGE_BUCKET_NAME, DEFAULT_S3_PATH)
+    STATIC_ROOT = "/%s/" % STATIC_S3_PATH
+    STATIC_URL = '//s3.amazonaws.com/%s/%s/' % \
+            (AWS_STORAGE_BUCKET_NAME, STATIC_S3_PATH)
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
