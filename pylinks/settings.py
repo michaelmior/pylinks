@@ -137,6 +137,8 @@ INSTALLED_APPS = (
     'south',
     'grappelli',
     'django.contrib.admin',
+    'gunicorn',
+    'storages',
 )
 
 GRAPPELLI_ADMIN_TITLE = 'Link database'
@@ -169,3 +171,9 @@ LOGGING = {
         },
     }
 }
+
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
