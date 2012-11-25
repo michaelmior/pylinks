@@ -10,5 +10,7 @@ django-s3-folder-storage==0.1
 django-storages==1.1.5
 gunicorn==0.16.1
 psycopg2==2.4.5
+pyelasticsearch==0.2
 python-ptrace==0.6.4
+requests==0.14.2
 wsgiref==0.1.2

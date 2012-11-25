@@ -15,8 +15,9 @@ DATABASES = {'default': dj_database_url.config(default='postgres://pylinks:pylin
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': os.environ.get('SEARCHBOX_URL', 'http://localhost:9200/'),
+        'INDEX_NAME': 'documents',
     },
 }
 
