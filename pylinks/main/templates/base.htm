@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 {% load macros %}
+{% load menu_li %}
 {% load page_url %}
 
 {% macro title %}
@@ -17,9 +18,11 @@
       <div class="navbar-inner">
         <div class="container">
           <div class="nav-collapse collapse">
-            <div class="nav">
-              <a class="brand" href="{% url "index" %}">{{ site.name }}</a>
-            </div>
+            <a class="brand" href="{% url "index" %}">{{ site.name }}</a>
+            <ul class="nav">
+              {% menu_li "recent_links" as "Recent" %}
+              {% menu_li "popular_links" as "Popular" %}
+            </ul>
             <form action="{% url "haystack_search" %}" class="navbar-search pull-right">
               <input name="q" type="text" class="search-query" placeholder="Search" value="{{ query }}">
             </form>
