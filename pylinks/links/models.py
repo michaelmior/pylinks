@@ -25,7 +25,7 @@ class Link(DatedModel):
     description = models.TextField(null=True)
     visits = models.IntegerField(default=0,
             help_text='Number of visitors who clicked on this link')
-    file = models.FileField(upload_to='links', null=True, default=None)
+    file = models.FileField(upload_to='links', null=True, default=None, max_length=500)
 
     def get_absolute_url(self):
         return reverse('track_link', args=(self.id,))
