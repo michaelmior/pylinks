@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'storages',
     's3_folder_storage',
+    'google_analytics',
 )
 
 GRAPPELLI_ADMIN_TITLE = 'Link database'
@@ -195,3 +196,5 @@ if not DEBUG:
     STATIC_URL = '//s3.amazonaws.com/%s/%s/' % \
             (AWS_STORAGE_BUCKET_NAME, STATIC_S3_PATH)
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+GOOGLE_ANALYTICS_MODEL = True
