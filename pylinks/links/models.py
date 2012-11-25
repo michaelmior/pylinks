@@ -23,7 +23,7 @@ class Link(DatedModel):
     url = models.URLField(verbose_name='URL')
     category = models.ForeignKey(Category, null=True, related_name='links')
     description = models.TextField(null=True)
-    visits = models.IntegerField(default=0,
+    visits = models.IntegerField(default=0, editable=False,
             help_text='Number of visitors who clicked on this link')
     file = models.FileField(upload_to='links', null=True, default=None, max_length=500)
 
