@@ -57,4 +57,8 @@ def track_link(request, link_id):
     link.visits = F('visits') + 1
     link.save(update_fields=['visits'])
 
-    return HttpResponseRedirect(link.url)
+    if link.file:
+        url = link.file.url
+    else:
+        url = link.url
+    return HttpResponseRedirect(url)
