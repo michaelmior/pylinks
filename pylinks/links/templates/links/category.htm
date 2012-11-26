@@ -1,2 +1,3 @@
 {% extends "links/links.htm" %}
 {% block title %}{{ category.title }} links{% endblock %}
+{% block feed_url %}{% url "feed_category" slug=category.slug %}{% endblock %}

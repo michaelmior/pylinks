@@ -1,17 +1,22 @@
 <!DOCTYPE HTML>
-{% load macros %}
+{% load captureas %}
 {% load menu_li %}
 {% load page_url %}
 
-{% macro title %}
+{% captureas title %}
   {% block title %}{% endblock %}
-{% endmacro %}
+{% endcaptureas %}
 
 <html>
   <head>
-    <title>{% usemacro title %} - {{ site.name }}</title>
+    <title>{{ title }} - {{ site.name }}</title>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css">
     {% block styles %}{% endblock %}
+
+    {% captureas feed_url %}{% block feed_url %}{% endblock %}{% endcaptureas %}
+    {% if feed_url %}
+      <link href="{{ feed_url }}" rel="alternate" type="application/rss+xml" title="{{ title }}">
+    {% endif %}
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -32,7 +37,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <h1>{% usemacro title %}</h1>
+        <h1>{{ title }}</h1>
         {% block content %}{% endblock %}
 
         {% if is_paginated %}
