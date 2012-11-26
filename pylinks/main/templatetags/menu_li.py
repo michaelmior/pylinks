@@ -9,18 +9,19 @@ class MenuLINode(URLNode):
     def render(self, context):
         # Pull out the match and hijack asvar
         # to be used for the link title
-        match = context['request'].resolver_match
+        request = context.get('request')
         if self.asvar:
             title = escape(self.asvar.strip('"\''))
-        else:
-            title = match.url_name
+        elif request:
+            title = request.resolver_match.url_name
 
         # Reset asvar and render to get the URL
         self.asvar = None
         menu_url = super(MenuLINode, self).render(context)
 
         # Check if we're on the defined page
-        if str(self.view_name).strip('"\'') == match.url_name:
+        if request and str(self.view_name).strip('"\'') == \
+                request.resolver_match.url_name:
             active_class = ' class="active"'
         else:
             active_class = ''
