@@ -14,5 +14,6 @@ newrelic==1.8.0.13
 psycopg2==2.4.5
 pyelasticsearch==0.2
 python-ptrace==0.6.4
+raven==2.0.10
 requests==0.14.2
 wsgiref==0.1.2
