@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.sites.models import Site
 
 
 class DatedModel(models.Model):
@@ -8,3 +9,14 @@ class DatedModel(models.Model):
     class Meta:
         abstract = True
         get_latest_by = 'updated_time'
+
+
+class SiteInfo(models.Model):
+    site = models.OneToOneField(Site, primary_key=True)
+    description = models.TextField(null=True)
+
+    def __unicode__(self):
+        return unicode(self.site)
+
+    class Meta:
+        verbose_name_plural = 'site info'

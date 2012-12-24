@@ -4,6 +4,15 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
+{% if site.siteinfo %}
+<div class="row">
+  <div class="span12">
+    {{ site.siteinfo.description|linebreaks }}
+  </div>
+</div>
+{% endif %}
+
 <h2>Categories</h2>
 
 <div class="row">
