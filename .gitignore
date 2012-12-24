@@ -1,4 +1,5 @@
 venv/
 *.pyc
 .DS_Store
+.env
 pylinks/whoosh_index/

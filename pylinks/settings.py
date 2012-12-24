@@ -2,7 +2,7 @@
 import os
 import dj_database_url
 
-DEBUG = False
+DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -11,7 +11,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {'default': dj_database_url.config(default='postgres://pylinks:pylinks@localhost/pylinks')}
+DATABASES = {'default': dj_database_url.config()}
 
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -80,7 +80,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'o$1tlc9f9mjo2q-1914_0khw^46!h^3b#kua$==uqpcx0^#6$-'
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
