@@ -15,6 +15,7 @@ class Category(DatedModel):
         return self.title
 
     class Meta:
+        ordering = ('title',)
         verbose_name_plural = 'categories'
 
 
