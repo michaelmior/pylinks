@@ -10,6 +10,13 @@
     {% if link.description %}
       <div class="link-description">{{ link.description|linebreaks }}</div>
     {% endif %}
+
+    {% if user.is_staff %}
+    <div>
+      <a class="btn btn-primary" href="{% url "admin:links_link_change" link.pk %}">Edit</a>
+      <a class="btn btn-danger" href="{% url "admin:links_link_delete" link.pk %}">Delete</a>
+    </div>
+    {% endif %}
     </li>
   {% endfor %}
 </ul>

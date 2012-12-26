@@ -22,6 +22,13 @@
       {% if result.object.description %}
         <div class="link-description">{% highlight result.object.description with query css_class "text-info" max_length 500 %}</div>
       {% endif %}
+
+      {% if user.is_staff %}
+      <div>
+        <a class="btn btn-primary" href="{% url "admin:links_link_change" result.object.pk %}">Edit</a>
+        <a class="btn btn-danger" href="{% url "admin:links_link_delete" result.object.pk %}">Delete</a>
+      </div>
+      {% endif %}
     </li>
   {% endfor %}
 </ul>
