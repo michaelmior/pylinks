@@ -20,3 +20,10 @@ class SiteInfo(models.Model):
 
     class Meta:
         verbose_name_plural = 'site info'
+
+    def save(self, *args, **kwargs):
+        # Ensure the site cache is cleared so the new
+        # info will be loaded next time
+        rc = super(SiteInfo, self).save(*args, **kwargs)
+        Site.objects.clear_cache()
+        return rc
