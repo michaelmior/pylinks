@@ -1,11 +1,20 @@
 from django.http import Http404
 from django.core.paginator import Paginator, InvalidPage
 from django.utils.translation import ugettext as _
-from haystack.views import SearchView
+
+from haystack.forms import FacetedSearchForm
+from haystack.query import SearchQuerySet
+from haystack.views import FacetedSearchView
 
 
-class SearchView(SearchView):
+class SearchView(FacetedSearchView):
     template = 'search/search.htm'
+
+    def __init__(self, *args, **kwargs):
+        super(SearchView, self).__init__(*args, **kwargs)
+
+        self.form_class = FacetedSearchForm
+        self.searchqueryset = SearchQuerySet().facet('category')
 
     def build_page(self):
         page = self.request.resolver_match.kwargs.get('page') or self.request.GET.get('page') or 1
@@ -28,4 +37,6 @@ class SearchView(SearchView):
         return (paginator, page)
 
     def extra_context(self):
-        return {'is_paginated': bool(self.query)}
+        context = super(SearchView, self).extra_context()
+        context.update({'is_paginated': bool(self.query)})
+        return context
