@@ -49,14 +49,13 @@ class PopularListView(LinkListView):
 
 
 def track_link(request, link_id):
-    try:
-        link = Link.objects.select_for_update().get(pk=link_id)
-    except Link.DoesNotExist:
+    link = Link.objects.select_for_update().filter(pk=link_id)
+    if not link.exists():
         raise Http404
 
-    link.visits = F('visits') + 1
-    link.save(update_fields=['visits'])
+    link.update(visits=F('visits') + 1)
 
+    link = link[0]
     if link.file:
         url = link.file.url
     else:
