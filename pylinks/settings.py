@@ -177,7 +177,7 @@ LOGGING = {
     }
 }
 
-if not DEBUG:
+if os.environ.get('AWS_ACCESS_KEY_ID'):
     STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     STATIC_URL = 'https://s3.amazonaws.com/static.pseupdate.mior.ca/'
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
