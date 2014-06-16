@@ -11,6 +11,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+ALLOWED_HOSTS = os.environ.get('HOSTNAMES', '').split(',')
+
 DATABASES = {'default': dj_database_url.config()}
 
 HAYSTACK_CONNECTIONS = {
