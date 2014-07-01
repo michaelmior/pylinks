@@ -118,6 +118,7 @@ INSTALLED_APPS = (
     'grappelli',
     'django.contrib.admin',
     'gunicorn',
+    'linkcheck',
     'storages',
     's3_folder_storage',
     'google_analytics',
