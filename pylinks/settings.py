@@ -103,6 +103,7 @@ INSTALLED_APPS = (
     'pylinks.links',
     'pylinks.feeds',
     'pylinks.search',
+    'pylinks.linkcheck',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -118,7 +119,6 @@ INSTALLED_APPS = (
     'grappelli',
     'django.contrib.admin',
     'gunicorn',
-    'linkcheck',
     'storages',
     's3_folder_storage',
     'google_analytics',
