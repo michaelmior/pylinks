@@ -12,6 +12,8 @@ ADMINS = (
 MANAGERS = ADMINS
 
 ALLOWED_HOSTS = os.environ.get('HOSTNAMES', '').split(',')
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True
 
 DATABASES = {'default': dj_database_url.config()}
 

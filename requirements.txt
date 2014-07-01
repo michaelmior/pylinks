@@ -1,4 +1,4 @@
-Django==1.5.8
+Django==1.6.5
 South==0.8.4
 Whoosh==2.5.7
 argparse==1.2.1
