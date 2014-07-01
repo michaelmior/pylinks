@@ -94,10 +94,10 @@ def check_links(external_recheck_interval=10080, limit=-1, check_internal=True, 
 def update_urls(urls, content_type, object_id):
     # url structure = (field, link text, url)
     for field, link_text, url in urls:
-        if url is not None and url.startswith('#'):
+        if url and url.startswith('#'):
             instance = content_type.get_object_for_this_type(id=object_id)
             url = instance.get_absolute_url() + url
-        if len(url)>MAX_URL_LENGTH: #we cannot handle url longer than MAX_URL_LENGTH at the moment
+        if not url or len(url) > MAX_URL_LENGTH: #we cannot handle url longer than MAX_URL_LENGTH at the moment
             continue
         u, created = Url.objects.get_or_create(url=url)
         l, created = Link.objects.get_or_create(url=u, field=field, text=link_text, content_type=content_type, object_id=object_id)
