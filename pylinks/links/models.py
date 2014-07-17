@@ -35,7 +35,14 @@ class Link(DatedModel):
             help_text='Number of visitors who clicked on this link')
 
     def get_absolute_url(self):
-        return reverse('track_link', args=(self.id,))
+        if self.id:
+            return reverse('track_link', args=(self.id,))
+        elif self.file:
+            return self.file.url
+        elif self.url:
+            return self.url
+        else:
+            return None
 
     def __unicode__(self):
         return self.title
