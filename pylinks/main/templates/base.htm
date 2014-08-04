@@ -48,23 +48,21 @@
         {% block content %}{% endblock %}
 
         {% if is_paginated %}
-          <div class="pagination">
-            <ul>
-              {% if page.has_previous %}
-                <li><a href="{% page_url page=page.previous_page_number %}">&laquo;</a></li>
-              {% endif %}
+          <ul class="pagination">
+            {% if page.has_previous %}
+              <li><a href="{% page_url page=page.previous_page_number %}">&laquo;</a></li>
+            {% endif %}
 
-              {% for page_number in paginator.page_range %}
-                <li{% ifequal page.number page_number %} class="active"{% endifequal %}>
-                  <a href="{% page_url page=page_number %}">{{ page_number }}</a>
-                </li>
-              {% endfor %}
+            {% for page_number in paginator.page_range %}
+              <li{% ifequal page.number page_number %} class="active"{% endifequal %}>
+                <a href="{% page_url page=page_number %}">{{ page_number }}</a>
+              </li>
+            {% endfor %}
 
-              {% if page.has_next %}
-                <li><a href="{% page_url page=page.next_page_number %}">&raquo;</a></li>
-              {% endif %}
-            </ul>
-          </div>
+            {% if page.has_next %}
+              <li><a href="{% page_url page=page.next_page_number %}">&raquo;</a></li>
+            {% endif %}
+          </ul>
         {% endif %}
       </div>
     </div>
