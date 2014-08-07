@@ -123,7 +123,6 @@ INSTALLED_APPS = (
     'storages',
     's3_folder_storage',
     'google_analytics',
-    'raven.contrib.django',
 )
 
 GRAPPELLI_ADMIN_TITLE = 'Link database'
