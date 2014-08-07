@@ -1,0 +1,22 @@
+{
+  "name": "pylinks",
+  "description": "A simple link directory using Django",
+  "repository": "https://github.com/michaelmior/pylinks",
+  "keywords": ["python", "django", "links", "directory"],
+  "env": {
+    "HOSTNAMES": {
+      "description": "A comma-separated list of hostnames where the app will be accessed used to prevent request forgery"
+    },
+    "DJANGO_SECRET_KEY": {
+      "description": "A randomly generated secret to secure your Django installation",
+      "generator": "secret"
+    }
+  },
+  "addons": [
+    "bonsai:starter",
+    "newrelic:stark"
+  ],
+  "scripts": {
+    "postdeploy": "sh -c 'python manage.py syncdb --noinput; python manage.py migrate --noinput; python manage.py collectstatic --noinput'"
+  }
+}
