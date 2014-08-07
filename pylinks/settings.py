@@ -158,9 +158,6 @@ LOGGING = {
 }
 
 if os.environ.get('AWS_ACCESS_KEY_ID'):
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    STATIC_URL = 'https://s3.amazonaws.com/static.pseupdate.mior.ca/'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
     DEFAULT_S3_PATH = 'media'
     STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
