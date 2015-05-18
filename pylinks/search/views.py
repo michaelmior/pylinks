@@ -14,7 +14,7 @@ class SearchView(FacetedSearchView):
         super(SearchView, self).__init__(*args, **kwargs)
 
         self.form_class = FacetedSearchForm
-        self.searchqueryset = SearchQuerySet().facet('category')
+        self.searchqueryset = SearchQuerySet()
 
     def build_page(self):
         page = self.request.resolver_match.kwargs.get('page') or self.request.GET.get('page') or 1

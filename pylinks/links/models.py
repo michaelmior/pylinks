@@ -28,8 +28,7 @@ class Link(DatedModel):
             null=True, default=None, max_length=500,
             help_text='A file to be uploaded and linked to instead ' \
             + 'of the URL.')
-    category = models.ForeignKey(Category, null=True, related_name='links')
-    categories = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category, related_name='links')
     description = models.TextField(null=True,
             help_text='Description of the link or file contents')
     visits = models.IntegerField(default=0, editable=False,

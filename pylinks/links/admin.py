@@ -14,7 +14,7 @@ admin.site.register(models.Category, CategoryAdmin)
 
 class LinkAdmin(ModelAdmin):
     list_display = ('title', 'url')
-    list_filter = ('category__title',)
+    list_filter = ('categories',)
     readonly_fields = ('visits',)
     search_fields = ('title',)
 

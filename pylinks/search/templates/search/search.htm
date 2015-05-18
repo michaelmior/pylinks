@@ -13,17 +13,6 @@
 
 {% if query %}
 
-{% if facets.fields.category and not request.GET.selected_facets %}
-  <h2>Categories</h2>
-  <ul>
-    {% for category in facets.fields.category %}
-      <li><a href="{{ request.get_full_path }}&amp;selected_facets=category_exact:{{ category.0|urlencode }}">
-        {{ category.0 }}</a> ({{ category.1 }})
-      </li>
-    {% endfor %}
-  </ul>
-{% endif %}
-
 {% if page.object_list %}
 <ul class="link-list unstyled">
   {% for result in page.object_list %}
