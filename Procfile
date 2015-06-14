@@ -1,1 +1,1 @@
-web: newrelic-admin run-program gunicorn pylinks.wsgi:application
+web: gunicorn pylinks.wsgi:application

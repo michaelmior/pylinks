@@ -12,7 +12,6 @@ django-haystack==2.1.0
 django-s3-folder-storage==0.1
 django-storages==1.1.8
 gunicorn==19.0.0
-newrelic==2.20.1.18
 psycopg2==2.5.3
 pyelasticsearch==0.6.1
 python-ptrace==0.7

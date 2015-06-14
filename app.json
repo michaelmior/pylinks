@@ -13,8 +13,7 @@
     }
   },
   "addons": [
-    "bonsai:starter",
-    "newrelic:stark"
+    "bonsai:starter"
   ],
   "scripts": {
     "postdeploy": "sh -c 'python manage.py syncdb --noinput; python manage.py migrate --noinput; python manage.py collectstatic --noinput'"
