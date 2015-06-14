@@ -1,1 +1,1 @@
-web: gunicorn pylinks.wsgi:application
+web: gunicorn pylinks.wsgi:application --log-file -
