@@ -86,6 +86,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.transaction.TransactionMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 )
 
 ROOT_URLCONF = 'pylinks.urls'
@@ -185,3 +186,10 @@ else:
     MEDIA_URL = '/media/'
 
 GOOGLE_ANALYTICS_MODEL = True
+
+ROLLBAR = {
+    'access_token': os.environ['ROLLBAR_ACCESS_TOKEN'],
+    'environment': 'development' if DEBUG else 'production',
+    'branch': 'master',
+    'root': os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+}
