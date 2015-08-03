@@ -14,7 +14,8 @@
   },
   "addons": [
     "searchbox:starter",
-    "rollbar:free"
+    "rollbar:free",
+    "newrelic:wayne"
   ],
   "scripts": {
     "postdeploy": "sh -c 'python manage.py syncdb --noinput; python manage.py migrate --noinput; python manage.py collectstatic --noinput'"
