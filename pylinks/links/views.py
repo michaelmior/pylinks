@@ -57,7 +57,7 @@ def track_link(request, link_id):
 
     link = link[0]
     if link.file:
-        url = link.file.url
+        url = link.file.cdn_url
     else:
         url = link.url
     return HttpResponseRedirect(url)

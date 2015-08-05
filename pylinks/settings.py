@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     'storages',
     's3_folder_storage',
     'google_analytics',
+    'pyuploadcare.dj',
 )
 
 GRAPPELLI_ADMIN_TITLE = 'Link database'
@@ -194,4 +195,9 @@ ROLLBAR = {
     'environment': 'development' if DEBUG else 'production',
     'branch': 'master',
     'root': os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+}
+
+UPLOADCARE = {
+    'pub_key': os.environ['UPLOADCARE_PUB_KEY'],
+    'secret': os.environ['UPLOADCARE_SECRET']
 }

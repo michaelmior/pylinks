@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from pylinks.main.models import DatedModel
+from pyuploadcare.dj import FileField
 
 
 class Category(DatedModel):
@@ -24,8 +25,7 @@ class Link(DatedModel):
     url = models.URLField(verbose_name='URL', blank=True,
             default=None, null=True,
             help_text='URL to link to. Leave blank if uploading a file.')
-    file = models.FileField(upload_to='links', blank=True,
-            null=True, default=None, max_length=500,
+    file = FileField(blank=True, null=True, default=None, max_length=500,
             help_text='A file to be uploaded and linked to instead ' \
             + 'of the URL.')
     categories = models.ManyToManyField(Category, related_name='links')
@@ -38,7 +38,7 @@ class Link(DatedModel):
         if self.id:
             return reverse('track_link', args=(self.id,))
         elif self.file:
-            return self.file.url
+            return self.file.cdn_url
         elif self.url:
             return self.url
         else:
@@ -49,6 +49,6 @@ class Link(DatedModel):
 
     def save(self, *args, **kwargs):
         if self.file:
-            self.url = self.file.url
+            self.url = self.file.cdn_url
 
         return super(Link, self).save(*args, **kwargs)
