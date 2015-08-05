@@ -1,1 +1,1 @@
-window.UPLOADCARE_TABS = "file";
+window.UPLOADCARE_TABS = "file url";
