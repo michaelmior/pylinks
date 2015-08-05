@@ -13,6 +13,9 @@ admin.site.register(models.Category, CategoryAdmin)
 
 
 class LinkAdmin(ModelAdmin):
+    class Media:
+        js = ('js/uploadcare.js',)
+
     list_display = ('title', 'url')
     list_filter = ('categories',)
     readonly_fields = ('visits',)
