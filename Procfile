@@ -1,1 +1,1 @@
-web: newrelic-admin run-program gunicorn pylinks.wsgi:application --log-file -
+web: newrelic-admin run-program gunicorn pylinks.wsgi:application --timeout 120 --log-file -
