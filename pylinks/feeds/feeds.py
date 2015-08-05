@@ -15,8 +15,7 @@ class BaseFeed(Feed):
         return item.created_time
 
     def item_categories(self, item):
-        category = item.category
-        return (category.title,) if category else ()
+        return [category.title for category in item.categories.all()]
 
 
 class CategoryFeed(BaseFeed):
