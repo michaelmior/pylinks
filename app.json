@@ -13,7 +13,7 @@
     }
   },
   "addons": [
-    "bonsai:starter",
+    "searchbox:starter",
     "rollbar:free"
   ],
   "scripts": {

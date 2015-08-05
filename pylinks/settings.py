@@ -21,7 +21,9 @@ DATABASES = {'default': dj_database_url.config()}
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': os.environ.get('BONSAI_URL', 'http://localhost:9200/'),
+        'URL': os.environ.get('BONSAI_URL') or
+               os.environ.get('SEARCHBOX_URL') or
+               'http://localhost:9200/',
         'INDEX_NAME': 'documents',
     },
 }
