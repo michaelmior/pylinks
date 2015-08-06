@@ -2,6 +2,7 @@
 import os
 import dj_database_url
 
+PYLINKS_HOME = os.environ.get('PYLINKS_HOME', None)
 DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 TEMPLATE_DEBUG = DEBUG
 

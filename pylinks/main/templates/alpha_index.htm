@@ -1,0 +1,31 @@
+{% extends "base.htm" %}
+{% load columns %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+{% if site.siteinfo %}
+<div class="row">
+  <div class="span12">
+    {{ site.siteinfo.description|linebreaks }}
+  </div>
+</div>
+{% endif %}
+
+<h2>Links</h2>
+
+<div class="row">
+  {% for column in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'|columns:"3" %}
+    <div class="span4">
+      <ul class="unstyled">
+        {% for letter in column %}
+          <li><h3>
+            <a href="{% url 'category_alpha' letter=letter page=1 %}">{{ letter }}</a>
+          </h3></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
