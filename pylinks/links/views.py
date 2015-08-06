@@ -33,6 +33,16 @@ class CategoryListView(LinkListView):
 
         return context
 
+class AlphaListView(LinkListView):
+    template_name = 'links/alpha.htm'
+
+    def get(self, request, *args, **kwargs):
+        self.letter = kwargs.get('letter')
+        return super(AlphaListView, self).get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        return Link.objects.filter(title__istartswith=self.letter)
+
 
 class RecentListView(LinkListView):
     template_name = 'links/recent.htm'

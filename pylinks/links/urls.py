@@ -2,6 +2,10 @@ from django.conf.urls import patterns, url
 from pylinks.links import views
 
 urlpatterns = patterns('pylinks.links.views',
+    url(r'^alpha/(?P<letter>[A-Z])/(?:(?P<page>\d+)/)?$',
+        views.AlphaListView.as_view(),
+        name='category_alpha'),
+
     url(r'^category/(?P<slug>[A-z0-9_\-]*)/(?:(?P<page>\d+)/)?$',
         views.CategoryListView.as_view(),
         name='category_links'),
