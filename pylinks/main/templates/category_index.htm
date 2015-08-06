@@ -16,8 +16,8 @@
 <h2>Categories</h2>
 
 <div class="row">
-  {% for column in categories|columns:"3" %}
-    <div class="span4">
+  {% for column in categories|columns:"2" %}
+    <div class="col-md-6">
       <ul class="unstyled">
         {% for category in column %}
           <li><h3>
