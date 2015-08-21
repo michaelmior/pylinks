@@ -1,5 +1,6 @@
 {% extends "base.htm" %}
 {% load columns %}
+{% load get_item %}
 
 {% block title %}Home{% endblock %}
 
@@ -21,7 +22,7 @@
       <ul class="unstyled">
         {% for letter in column %}
           <li><h3>
-            <a href="{% url 'category_alpha' letter=letter page=1 %}">{{ letter }}</a>
+            <a href="{% url 'category_alpha' letter=letter page=1 %}">{{ letter }} ({{ letters|get_item:letter }})</a>
           </h3></li>
         {% endfor %}
       </ul>
