@@ -11,6 +11,7 @@ class LinkFile(File):
         matches = cdn_url_or_file_id.startswith('links/')
         if matches:
             self.s3_path = cdn_url_or_file_id
+            self.uuid = None
         else:
             self.s3_path = None
             File.__init__(self, cdn_url_or_file_id)
@@ -21,6 +22,12 @@ class LinkFile(File):
             return 'http://s3.amazonaws.com/{bucket}/media/{path}'.format(bucket=settings.AWS_STORAGE_BUCKET_NAME, path=self.s3_path)
         else:
             return File.cdn_url.fget(self)
+
+    def __repr__(self):
+        if self.uuid is None:
+            return '<LinkFile {s3_path}>'.format(s3_path=self.s3_path)
+        else:
+            return '<LinkFile {uuid}>'.format(uuid=self.uuid)
 
 # Patch FileField to return LinkFile instances
 class LinkFileField(FileField):
