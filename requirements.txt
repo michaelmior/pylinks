@@ -1,5 +1,5 @@
 argparse==1.4.0
-boto==2.29.1
+boto==2.40.0
 dj-database-url==0.4.1
 dj-static==0.0.6
 Django==1.6.6
