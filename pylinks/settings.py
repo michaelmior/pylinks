@@ -22,7 +22,7 @@ DATABASES = {'default': dj_database_url.config()}
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': os.environ.get('BONSAI_URL') or
+        'URL': os.environ.get('BONSAI_URL').replace('https:', 'http:') or # XXX does not currently work with HTTPS
                os.environ.get('SEARCHBOX_SSL_URL') or
                os.environ.get('SEARCHBOX_URL') or
                'http://localhost:9200/',
