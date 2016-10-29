@@ -123,6 +123,7 @@ INSTALLED_APPS = (
 
     'haystack',
     'south',
+    'grappelli.dashboard',
     'grappelli',
     'django.contrib.admin',
     'gunicorn',
@@ -205,3 +206,5 @@ UPLOADCARE = {
     'pub_key': os.environ['UPLOADCARE_PUB_KEY'],
     'secret': os.environ['UPLOADCARE_SECRET']
 }
+
+GRAPPELLI_INDEX_DASHBOARD = 'pylinks.dashboard.CustomIndexDashboard'
