@@ -93,6 +93,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 )
 
 ROOT_URLCONF = 'pylinks.urls'
@@ -132,6 +133,7 @@ INSTALLED_APPS = (
     's3_folder_storage',
     'google_analytics',
     'pyuploadcare.dj',
+    'django_user_agents',
 )
 
 GRAPPELLI_ADMIN_TITLE = 'Link database'

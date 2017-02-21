@@ -63,7 +63,8 @@ def track_link(request, link_id):
     if not link.exists() or link[0].url == '':
         raise Http404
 
-    link.update(visits=F('visits') + 1)
+    if not request.user_agent.is_bot:
+        link.update(visits=F('visits') + 1)
 
     link = link[0]
     if link.file:
