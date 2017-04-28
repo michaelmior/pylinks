@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^links/', include('pylinks.links.urls')),
     url(r'^search/', include('pylinks.search.urls')),
     url(r'^', include('pylinks.main.urls')),
+    url(r'^csp-reports/', include('cspreports.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

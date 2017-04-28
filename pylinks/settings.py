@@ -1,6 +1,7 @@
 # Django settings for pylinks project.
 import os
 import dj_database_url
+from django.core.urlresolvers import reverse_lazy
 
 PYLINKS_HOME = os.environ.get('PYLINKS_HOME', None)
 DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
@@ -87,6 +88,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'csp.middleware.CSPMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
@@ -122,6 +124,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
+    'cspreports',
     'haystack',
     'south',
     'grappelli.dashboard',
@@ -135,6 +138,11 @@ INSTALLED_APPS = (
     'pyuploadcare.dj',
     'django_user_agents',
 )
+
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_REPORTS_EMAIL_ADMINS = False
+CSP_REPORT_URI = reverse_lazy('report_csp')
+CSP_REPORT_ONLY = True
 
 GRAPPELLI_ADMIN_TITLE = 'Link database'
 
