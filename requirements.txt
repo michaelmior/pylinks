@@ -23,7 +23,7 @@ python-dateutil==2.6.0
 python-ptrace==0.9
 pyuploadcare==2.1.0
 requests==2.13.0
-rollbar==0.13.10
+rollbar==0.13.11
 s3transfer==0.1.10
 simplejson==3.10.0
 six==1.10.0
