@@ -29,7 +29,7 @@ PyYAML==3.12
 requests==2.13.0
 rollbar==0.13.11
 s3transfer==0.1.10
-simplejson==3.10.0
+simplejson==3.11.0
 six==1.10.0
 South==1.0.2
 static3==0.7.0
