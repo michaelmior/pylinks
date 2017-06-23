@@ -10,7 +10,7 @@ django-csp-reports==1.1
 django-google-analytics==1
 django-grappelli==2.5.7
 django-haystack==2.1.0
-django-s3-folder-storage==0.3
+django-s3-folder-storage==0.5
 django-storages==1.4.1
 django-user-agents==0.3.0
 docutils==0.13.1
