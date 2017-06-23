@@ -8,7 +8,7 @@ Django==1.6.11
 django-csp==3.3
 django-csp-reports==1.1
 django-google-analytics==1
-django-grappelli==2.5.7
+django-grappelli==2.10.1
 django-haystack==2.1.0
 django-s3-folder-storage==0.3
 django-storages==1.4.1
