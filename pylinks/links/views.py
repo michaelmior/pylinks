@@ -55,7 +55,7 @@ class PopularListView(LinkListView):
     template_name = 'links/popular.htm'
 
     def get_queryset(self):
-        return Link.objects.all().order_by('-visits')
+        return Link.objects.all().order_by('-visits', 'title')
 
 
 def track_link(request, link_id):

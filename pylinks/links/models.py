@@ -53,6 +53,9 @@ class Link(DatedModel):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        ordering = ('title',)
+
     def save(self, *args, **kwargs):
         if self.file:
             self.url = self.file.cdn_url
