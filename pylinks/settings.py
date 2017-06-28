@@ -89,8 +89,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.transaction.TransactionMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 )
+
+if not os.environ.get('ROLLBAR_DISABLED', False):
+    MIDDLEWARE_CLASSES.append('rollbar.contrib.django.middleware.RollbarNotifierMiddleware')
 
 ROOT_URLCONF = 'pylinks.urls'
 
@@ -103,7 +105,7 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'pylinks.main',
     'pylinks.links',
     'pylinks.feeds',
@@ -127,8 +129,10 @@ INSTALLED_APPS = (
     'storages',
     's3_folder_storage',
     'google_analytics',
-    'pyuploadcare.dj',
-)
+]
+
+if not os.environ.get('UPLOADCARE_DISABLED', False):
+    INSTALLED_APPS.append('pyuploadcare.dj')
 
 GRAPPELLI_ADMIN_TITLE = 'Link database'
 
@@ -196,9 +200,9 @@ ROLLBAR = {
     'environment': 'development' if DEBUG else 'production',
     'branch': 'master',
     'root': os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-}
+} if not os.environ.get('ROLLBAR_DISABLED', False) else {}
 
 UPLOADCARE = {
     'pub_key': os.environ['UPLOADCARE_PUB_KEY'],
     'secret': os.environ['UPLOADCARE_SECRET']
-}
+} if not os.environ.get('UPLOADCARE_DISABLED', False) else {}

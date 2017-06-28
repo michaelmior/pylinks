@@ -1,7 +1,13 @@
+import os
+
 from django.db import models
 from django.core.urlresolvers import reverse
 from pylinks.main.models import DatedModel
-from pylinks.links.utils import LinkFileField
+
+if not os.environ.get('UPLOADCARE_DISABLED', False):
+    from pylinks.links.utils import LinkFileField
+else:
+    from django.db.models import FileField as LinkFileField
 
 
 class Category(DatedModel):
@@ -27,7 +33,7 @@ class Link(DatedModel):
             help_text='URL to link to. Leave blank if uploading a file.')
     file = LinkFileField(blank=True, null=True, default=None, max_length=500,
             help_text='A file to be uploaded and linked to instead ' \
-            + 'of the URL.')
+            + 'of the URL.', upload_to='uploads/')
     categories = models.ManyToManyField(Category, related_name='links')
     description = models.TextField(null=True,
             help_text='Description of the link or file contents')

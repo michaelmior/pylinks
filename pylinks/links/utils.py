@@ -31,6 +31,10 @@ class LinkFile(File):
 
 # Patch FileField to return LinkFile instances
 class LinkFileField(FileField):
+    def __init__(self, *args, **kwargs):
+        kwargs.pop('upload_to', None)
+        super(LinkFileField, self).__init__(*args, **kwargs)
+
     def to_python(self, value):
         if value is None or value == '':
             return value
