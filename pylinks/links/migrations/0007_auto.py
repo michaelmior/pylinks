@@ -17,10 +17,11 @@ class Migration(SchemaMigration):
         ))
         db.create_unique(m2m_table_name, ['link_id', 'category_id'])
 
-        # Copy existing categories
-        for link in orm.Link.objects.all():
-            link.categories.add(link.category)
-            link.save()
+        if not db.dry_run:
+            # Copy existing categories
+            for link in orm.Link.objects.all():
+                link.categories.add(link.category)
+                link.save()
 
 
     def backwards(self, orm):
