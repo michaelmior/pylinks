@@ -11,7 +11,7 @@ django-storages==1.4.1
 gunicorn==19.4.5
 MySQL-python==1.2.5
 newrelic==2.64.0.48
-psycopg2==2.6.1
+psycopg2==2.7.1
 pyelasticsearch==0.6.1
 python-dateutil==2.5.3
 python-ptrace==0.9
