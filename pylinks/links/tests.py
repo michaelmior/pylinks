@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import Client, TestCase
 
 from .models import Category, Link
 
@@ -23,3 +23,11 @@ class LinkModelTests(TestCase):
 
     def test_link_title(self):
         self.assertEqual(str(self.link), 'GitHub')
+
+    def test_increment_visits(self):
+        self.link.save()
+        client = Client()
+        response = client.get('/links/go/%d/' % self.link.id)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response['Location'], self.link.url)
+        self.assertEqual(Link.objects.get(pk=self.link.id).visits, 1)
