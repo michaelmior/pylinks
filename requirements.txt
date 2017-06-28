@@ -10,7 +10,7 @@ django-s3-folder-storage==0.3
 django-storages==1.4.1
 gunicorn==19.4.5
 MySQL-python==1.2.5
-newrelic==2.64.0.48
+newrelic==2.86.3.70
 psycopg2==2.6.1
 pyelasticsearch==0.6.1
 python-dateutil==2.5.3
