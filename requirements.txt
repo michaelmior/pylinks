@@ -21,6 +21,6 @@ rollbar==0.12.1
 simplejson==3.8.2
 six==1.10.0
 South==1.0.2
-static3==0.6.1
+static3==0.7.0
 Whoosh==2.7.4
 wsgiref==0.1.2
