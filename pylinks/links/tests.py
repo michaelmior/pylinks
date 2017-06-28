@@ -1,4 +1,4 @@
-from django.test import Client, TestCase
+from django.test import TestCase
 from django.core.urlresolvers import reverse
 
 from .models import Category, Link
