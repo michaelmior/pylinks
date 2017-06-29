@@ -139,7 +139,6 @@ INSTALLED_APPS = [
     'gunicorn',
     'storages',
     's3_folder_storage',
-    'analytics',
 ]
 
 if not os.environ.get('UPLOADCARE_DISABLED', False):
@@ -215,3 +214,5 @@ UPLOADCARE = {
     'pub_key': os.environ['UPLOADCARE_PUB_KEY'],
     'secret': os.environ['UPLOADCARE_SECRET']
 } if not os.environ.get('UPLOADCARE_DISABLED', False) else {}
+
+GA_PROPERTY_ID = 'UA-123456-7'
