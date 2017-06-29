@@ -1,7 +1,7 @@
 boto==2.40.0
 dj-database-url==0.4.2
 dj-static==0.0.6
-Django==1.9.13
+Django==1.10.7
 django-google-analytics==2
 django-grappelli==2.10.1
 django-haystack==2.5.1

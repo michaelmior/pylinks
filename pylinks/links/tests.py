@@ -1,5 +1,4 @@
 from django.test import TestCase
-from django.core.urlresolvers import reverse
 
 from .models import Category, Link
 
@@ -21,15 +20,14 @@ class LinkModelTests(TestCase):
         self.link.save()
         self.assertEqual(self.link.visits, 0)
         self.assertEqual(self.link.get_absolute_url(),
-            reverse('track_link', kwargs={'link_id': self.link.id}))
+            '/links/go/%d/' % self.link.id)
 
     def test_link_title(self):
         self.assertEqual(str(self.link), 'GitHub')
 
     def test_increment_visits(self):
         self.link.save()
-        response = self.client.get(
-            reverse('track_link', kwargs={'link_id': self.link.id}))
+        response = self.client.get('/links/go/%d/' % self.link.id)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response['Location'], self.link.url)
         self.assertEqual(Link.objects.get(pk=self.link.id).visits, 1)
@@ -55,7 +53,7 @@ class ListViewTests(TestCase):
 
 class CategoryListViewTests(ListViewTests):
     def test_category_list(self):
-        response = self.client.get(reverse('category_links', kwargs={'slug': 'a'}))
+        response = self.client.get('/links/category/a/')
         self.assertQuerysetEqual(response.context['links'], [
             '<Link: GitHub>',
             '<Link: Google>'
@@ -63,7 +61,7 @@ class CategoryListViewTests(ListViewTests):
 
 class PopularListViewTests(ListViewTests):
     def test_popular_list(self):
-        response = self.client.get(reverse('popular_links'))
+        response = self.client.get('/links/popular/')
         self.assertQuerysetEqual(response.context['links'], [
             '<Link: UW>',
             '<Link: GitHub>',
@@ -72,7 +70,7 @@ class PopularListViewTests(ListViewTests):
 
 class RecentListViewTests(ListViewTests):
     def test_recent_list(self):
-        response = self.client.get(reverse('recent_links'))
+        response = self.client.get('/links/recent/')
         self.assertQuerysetEqual(response.context['links'], [
             '<Link: UW>',
             '<Link: GitHub>',

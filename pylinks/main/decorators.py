@@ -1,5 +1,4 @@
-from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from functools import wraps
 
 
@@ -9,7 +8,7 @@ def render_to(template=None, content_type=None):
     function.
 
     Template name can be decorator parameter or TEMPLATE item in returned
-    dictionary.  RequestContext always added as context instance.
+    dictionary.
     If view doesn't return dict then decorator simply returns output.
 
     Parameters:
@@ -27,9 +26,7 @@ def render_to(template=None, content_type=None):
     # equals to
     def foo(request):
         bar = Bar.object.all()
-        return render_to_response('template.html',
-                                  {'bar': bar},
-                                  context_instance=RequestContext(request))
+        return render_to_response('template.html', {'bar': bar})
 
 
     # 2. Template name as TEMPLATE item value in return dictionary.
@@ -44,9 +41,7 @@ def render_to(template=None, content_type=None):
     #equals to
     def foo(request, category):
         template_name = '%s.html' % category
-        return render_to_response(template_name,
-                                  {'bar': bar},
-                                  context_instance=RequestContext(request))
+        return render_to_response(template_name, {'bar': bar})
 
     """
     def renderer(function):
@@ -56,10 +51,9 @@ def render_to(template=None, content_type=None):
             if output and not isinstance(output, dict):
                 return output
             else:
-                return render_to_response(
+                return render(request,
                     output and output.get('TEMPLATE') or template,
                     output,
-                    context_instance=RequestContext(request),
                     content_type=content_type
                 )
         return wrapper
