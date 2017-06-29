@@ -4,7 +4,7 @@ dj-static==0.0.6
 Django==1.8.18
 django-google-analytics==2
 django-grappelli==2.10.1
-django-haystack==2.4.1
+django-haystack==2.5.1
 django-s3-folder-storage==0.3
 django-storages==1.4.1
 elasticsearch==2.4.1
