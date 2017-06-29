@@ -11,7 +11,9 @@ SITE_DOMAIN = ALLOWED_HOSTS[0]
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
 
-DATABASES = {'default': dj_database_url.config()}
+db_config = dj_database_url.config()
+db_config['ATOMIC_REQUESTS'] = True
+DATABASES = {'default': db_config}
 
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -80,7 +82,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.transaction.TransactionMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
