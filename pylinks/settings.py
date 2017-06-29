@@ -4,7 +4,6 @@ import dj_database_url
 
 PYLINKS_HOME = os.environ.get('PYLINKS_HOME', None)
 DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
-TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = os.environ.get('HOSTNAMES', '').split(',')
 SITE_DOMAIN = ALLOWED_HOSTS[0]
@@ -61,20 +60,23 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'debug': DEBUG,
+            'context_processors': (
+                'pylinks.main.context_processors.site',
+            
+                'django.template.context_processors.static',
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.request',
+            )
+        }
+    },
+]
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'pylinks.main.context_processors.site',
-
-    'django.core.context_processors.static',
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.request',
-)
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
@@ -92,12 +94,6 @@ ROOT_URLCONF = 'pylinks.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'pylinks.wsgi.application'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
 
 INSTALLED_APPS = [
     'pylinks.main',

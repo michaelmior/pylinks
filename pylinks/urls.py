@@ -10,7 +10,7 @@ admin.autodiscover()
 #admin.site.unregister(Group)
 #admin.site.unregister(Site)
 
-urlpatterns = patterns('',
+urlpatterns = (
     url(r'^feed/', include('pylinks.feeds.urls')),
     url(r'^links/', include('pylinks.links.urls')),
     url(r'^search/', include('pylinks.search.urls')),

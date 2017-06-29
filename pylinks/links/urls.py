@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 from pylinks.links import views
 
-urlpatterns = patterns('pylinks.links.views',
+urlpatterns = (
     url(r'^alpha/(?P<letter>[A-Z])/(?:(?P<page>\d+)/)?$',
         views.AlphaListView.as_view(),
         name='category_alpha'),
@@ -18,5 +18,5 @@ urlpatterns = patterns('pylinks.links.views',
         views.PopularListView.as_view(),
         name='popular_links'),
 
-    url(r'^go/(?P<link_id>\d+)/$', 'track_link', name='track_link'),
+    url(r'^go/(?P<link_id>\d+)/$', views.track_link, name='track_link'),
 )

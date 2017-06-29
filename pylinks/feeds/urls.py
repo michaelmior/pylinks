@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url
 from pylinks.feeds import feeds
 
 
-urlpatterns = patterns('',
+urlpatterns = (
     url(r'^category/(?P<slug>.*)/', feeds.CategoryFeed(),
       name='feed_category'),
     url(r'^recent/', feeds.RecentFeed(),
