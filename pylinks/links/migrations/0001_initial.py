@@ -1,61 +1,47 @@
 # -*- coding: utf-8 -*-
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Category'
-        db.create_table('links_category', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('created_time', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, null=True, blank=True)),
-            ('updated_time', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, null=True, blank=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(unique=True, max_length=200)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50)),
-        ))
-        db.send_create_signal('links', ['Category'])
+    dependencies = [
+    ]
 
-        # Adding model 'Link'
-        db.create_table('links_link', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('created_time', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, null=True, blank=True)),
-            ('updated_time', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, null=True, blank=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('url', self.gf('django.db.models.fields.URLField')(max_length=200)),
-            ('category', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['links.Category'], null=True)),
-        ))
-        db.send_create_signal('links', ['Link'])
-
-
-    def backwards(self, orm):
-        # Deleting model 'Category'
-        db.delete_table('links_category')
-
-        # Deleting model 'Link'
-        db.delete_table('links_link')
-
-
-    models = {
-        'links.category': {
-            'Meta': {'object_name': 'Category'},
-            'created_time': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
-            'title': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
-            'updated_time': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'null': 'True', 'blank': 'True'})
-        },
-        'links.link': {
-            'Meta': {'object_name': 'Link'},
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['links.Category']", 'null': 'True'}),
-            'created_time': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
-            'updated_time': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'null': 'True', 'blank': 'True'}),
-            'url': ('django.db.models.fields.URLField', [], {'max_length': '200'})
-        }
-    }
-
-    complete_apps = ['links']
+    operations = [
+        migrations.CreateModel(
+            name='Category',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created_time', models.DateTimeField(auto_now_add=True, null=True)),
+                ('updated_time', models.DateTimeField(auto_now=True, null=True)),
+                ('title', models.CharField(unique=True, max_length=200)),
+                ('slug', models.SlugField(help_text=b'Text for the URL')),
+                ('description', models.TextField(null=True)),
+            ],
+            options={
+                'ordering': ('title',),
+                'verbose_name_plural': 'categories',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Link',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created_time', models.DateTimeField(auto_now_add=True, null=True)),
+                ('updated_time', models.DateTimeField(auto_now=True, null=True)),
+                ('title', models.CharField(max_length=200)),
+                ('url', models.URLField(default=None, blank=True, help_text=b'URL to link to. Leave blank if uploading a file.', null=True, verbose_name=b'URL')),
+                ('file', models.FileField(default=None, upload_to=b'uploads/', max_length=500, blank=True, help_text=b'A file to be uploaded and linked to instead of the URL.', null=True)),
+                ('description', models.TextField(help_text=b'Description of the link or file contents', null=True)),
+                ('visits', models.IntegerField(default=0, help_text=b'Number of visitors who clicked on this link', editable=False)),
+                ('categories', models.ManyToManyField(related_name='links', to='links.Category')),
+            ],
+            options={
+                'ordering': ('title',),
+            },
+            bases=(models.Model,),
+        ),
+    ]

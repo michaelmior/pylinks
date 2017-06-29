@@ -12,8 +12,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-ALLOWED_HOSTS = LINKCHECK_SITE_DOMAINS = os.environ.get('HOSTNAMES', '').split(',')
-SITE_DOMAIN = LINKCHECK_SITE_DOMAINS[0]
+ALLOWED_HOSTS = os.environ.get('HOSTNAMES', '').split(',')
+SITE_DOMAIN = ALLOWED_HOSTS[0]
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
 
@@ -121,11 +121,9 @@ INSTALLED_APPS = [
     # 'django.contrib.admindocs',
 
     'haystack',
-    'south',
     'grappelli',
     'django.contrib.admin',
     'gunicorn',
-    'linkcheck',
     'storages',
     's3_folder_storage',
     'google_analytics',
