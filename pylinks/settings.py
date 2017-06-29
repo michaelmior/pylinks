@@ -6,12 +6,6 @@ PYLINKS_HOME = os.environ.get('PYLINKS_HOME', None)
 DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
-
-MANAGERS = ADMINS
-
 ALLOWED_HOSTS = os.environ.get('HOSTNAMES', '').split(',')
 SITE_DOMAIN = ALLOWED_HOSTS[0]
 SESSION_COOKIE_HTTPONLY = True
@@ -87,8 +81,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 if not os.environ.get('ROLLBAR_DISABLED', False):
