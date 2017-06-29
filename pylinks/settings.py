@@ -120,7 +120,7 @@ INSTALLED_APPS = [
     'gunicorn',
     'storages',
     's3_folder_storage',
-    'google_analytics',
+    'analytics',
 ]
 
 if not os.environ.get('UPLOADCARE_DISABLED', False):
@@ -184,8 +184,6 @@ else:
     STATIC_URL = '/static/'
     MEDIA_ROOT = 'media'
     MEDIA_URL = '/media/'
-
-GOOGLE_ANALYTICS_MODEL = True
 
 ROLLBAR = {
     'access_token': os.environ['ROLLBAR_ACCESS_TOKEN'],
