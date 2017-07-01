@@ -185,10 +185,6 @@ if os.environ.get('AWS_ACCESS_KEY_ID'):
     AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
     AWS_QUERYSTRING_AUTH = False
 
-    # Avoid using subdomains
-    from boto.s3.connection import OrdinaryCallingFormat
-    AWS_S3_CALLING_FORMAT = OrdinaryCallingFormat()
-
     MEDIA_ROOT = '/%s/' % DEFAULT_S3_PATH
     MEDIA_URL = '//s3.amazonaws.com/%s/%s/' % \
             (AWS_STORAGE_BUCKET_NAME, DEFAULT_S3_PATH)
