@@ -1,20 +1,25 @@
 language: python
 python:
-  - "2.7"
+- '2.7'
 services:
-  - elasticsearch
-  - postgresql
+- elasticsearch
+- postgresql
 env:
   global:
-    - DJANGO_DEBUG=1
-    - UPLOADCARE_DISABLED=1
-    - ROLLBAR_DISABLED=1
-    - DJANGO_SECRET_KEY=foo
-    - DATABASE_URL=postgres://travis@127.0.0.1/travis_ci_test
-    - HOSTNAMES=localhost
+  - DJANGO_DEBUG=1
+  - UPLOADCARE_DISABLED=1
+  - ROLLBAR_DISABLED=1
+  - DJANGO_SECRET_KEY=foo
+  - DATABASE_URL=postgres://travis@127.0.0.1/travis_ci_test
+  - HOSTNAMES=localhost
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 before_script:
-  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
+- psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
 script:
-  - python manage.py test pylinks
+- python manage.py test pylinks
+deploy:
+  provider: heroku
+  api_key:
+    secure: RCzj8lusbcdHAHZX3iEp7UqGn6QsijyFap1Fyt2ZRtx0en8CrDlN+pUTzqmGAWSSn+MoUrLs8lY6rMHOgBRxh5XvRdBM07oiEs5GP4lqHbB/Y1ptSHA58cWZ/CUKT+PFDwgmAoGX4ZpOTZyG1+2HOIQEaoVBwgZxXTMbpwzmljw=
+  app: pseupdate
