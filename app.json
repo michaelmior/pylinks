@@ -19,11 +19,11 @@
     }
   },
   "addons": [
-    "searchbox:starter",
-    "rollbar:free",
-    "newrelic:wayne"
+    "bonsai:sandbox-10",
+    "newrelic:wayne",
+    "rollbar:free"
   ],
   "scripts": {
-    "postdeploy": "sh -c 'python manage.py syncdb --noinput; python manage.py migrate --noinput; python manage.py collectstatic --noinput'"
+    "postdeploy": "sh -c 'python manage.py migrate --noinput; python manage.py collectstatic --noinput'"
   }
 }
