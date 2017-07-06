@@ -211,4 +211,4 @@ UPLOADCARE = {
     'secret': os.environ['UPLOADCARE_SECRET']
 } if not os.environ.get('UPLOADCARE_DISABLED', False) else {}
 
-GA_PROPERTY_ID = 'UA-123456-7'
+GA_PROPERTY_ID = os.environ.get('GA_PROPERTY_ID', None)

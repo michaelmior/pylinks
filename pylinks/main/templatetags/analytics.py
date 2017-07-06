@@ -7,7 +7,7 @@ register = template.Library()
 
 @register.simple_tag(takes_context=True)
 def analytics(context):
-    if not hasattr(settings, 'GA_PROPERTY_ID'):
+    if not getattr(settings, 'GA_PROPERTY_ID', None):
         return ''
 
     return mark_safe('''
