@@ -18,6 +18,12 @@
       "generator": "secret"
     }
   },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
   "addons": [
     "bonsai:sandbox-10",
     "newrelic:wayne",
