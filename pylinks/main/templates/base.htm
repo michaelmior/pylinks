@@ -30,8 +30,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            {% menu_li "recent_links" as "Recent" %}
-            {% menu_li "popular_links" as "Popular" %}
+            {% menu_li "recent_links" "Recent" %}
+            {% menu_li "popular_links" "Popular" %}
           </ul>
           <form action="{% url "haystack_search" %}" class="navbar-form navbar-right" role="form">
             <div class="form-group">
