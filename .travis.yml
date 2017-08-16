@@ -1,23 +1,37 @@
 language: python
 python:
-- '2.7'
-services:
-- elasticsearch
-- postgresql
+  - 2.7
+
+sudo: required
+
 env:
   global:
-  - DJANGO_DEBUG=1
-  - UPLOADCARE_DISABLED=1
-  - ROLLBAR_DISABLED=1
-  - DJANGO_SECRET_KEY=foo
-  - DATABASE_URL=postgres://travis@127.0.0.1/travis_ci_test
-  - HOSTNAMES=localhost
+    - DJANGO_DEBUG=1
+    - UPLOADCARE_DISABLED=1
+    - ROLLBAR_DISABLED=1
+    - DJANGO_SECRET_KEY=foo
+    - DATABASE_URL=postgres://travis@127.0.0.1/travis_ci_test
+    - HOSTNAMES=localhost
+
+addons:
+    postgresql: 9.6
+
+services:
+  - elasticsearch
+  - postgresql
+
+before_install:
+  - curl -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.0/elasticsearch-2.4.0.deb && sudo dpkg -i --force-confnew elasticsearch-2.4.0.deb && sudo service elasticsearch restart
+
 install:
-- pip install -r requirements.txt
+  - pip install -r requirements.txt
+
 before_script:
-- psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
+  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
+
 script:
-- python manage.py test pylinks
+  - python manage.py test pylinks
+
 deploy:
   provider: heroku
   api_key:
