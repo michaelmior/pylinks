@@ -18,7 +18,7 @@ idna==2.6
 jmespath==0.9.3
 MySQL-python==1.2.5
 newrelic==2.96.0.80
-psycopg2==2.7.3.1
+psycopg2==2.7.3.2
 python-dateutil==2.6.1
 python-ptrace==0.9.3
 pyuploadcare==2.2.1
