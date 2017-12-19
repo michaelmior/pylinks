@@ -1,4 +1,4 @@
-boto3==1.5.2
+boto3==1.5.3
 botocore==1.8.16
 certifi==2017.11.5
 chardet==3.0.4
