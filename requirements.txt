@@ -17,7 +17,7 @@ gunicorn==19.7.1
 idna==2.6
 jmespath==0.9.3
 MySQL-python==1.2.5
-newrelic==2.98.0.81
+newrelic==2.100.0.84
 psycopg2==2.7.3.2
 python-dateutil==2.6.1
 python-ptrace==0.9.3
