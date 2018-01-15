@@ -9,7 +9,7 @@
 {% if site.siteinfo %}
 <div class="row">
   <div class="span12">
-    {{ site.siteinfo.description|linebreaks }}
+    {{ site.siteinfo.description|linebreaks|urlize }}
   </div>
 </div>
 {% endif %}
