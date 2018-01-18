@@ -1,7 +1,7 @@
 import os
 
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from pylinks.main.models import DatedModel
 
 if not os.environ.get('UPLOADCARE_DISABLED', False):
@@ -18,7 +18,7 @@ class Category(DatedModel):
     def get_absolute_url(self):
         return reverse('category_links', kwargs={'slug': self.slug})
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
@@ -50,8 +50,11 @@ class Link(DatedModel):
         else:
             return None
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
+
+    def __repr__(self):
+        return '<Link: {}>'.format(self.title)
 
     class Meta:
         ordering = ('title',)

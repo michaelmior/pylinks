@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SiteInfo',
             fields=[
-                ('site', models.OneToOneField(primary_key=True, serialize=False, to='sites.Site')),
+                ('site', models.OneToOneField(primary_key=True, serialize=False, to='sites.Site', on_delete=models.CASCADE)),
                 ('description', models.TextField(null=True)),
             ],
             options={

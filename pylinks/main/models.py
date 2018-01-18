@@ -12,11 +12,12 @@ class DatedModel(models.Model):
 
 
 class SiteInfo(models.Model):
-    site = models.OneToOneField(Site, primary_key=True)
+    site = models.OneToOneField(Site, primary_key=True,
+                                on_delete=models.CASCADE)
     description = models.TextField(null=True)
 
-    def __unicode__(self):
-        return unicode(self.site)
+    def __self__(self):
+        return str(self.site)
 
     class Meta:
         verbose_name_plural = 'site info'

@@ -91,7 +91,7 @@ TEMPLATES = [
             'debug': DEBUG,
             'context_processors': (
                 'pylinks.main.context_processors.site',
-            
+
                 'django.template.context_processors.static',
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.request',
@@ -101,7 +101,7 @@ TEMPLATES = [
 ]
 
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -111,7 +111,7 @@ MIDDLEWARE_CLASSES = [
 ]
 
 if not os.environ.get('ROLLBAR_DISABLED', False):
-    MIDDLEWARE_CLASSES.append('rollbar.contrib.django.middleware.RollbarNotifierMiddleware')
+    MIDDLEWARE.append('rollbar.contrib.django.middleware.RollbarNotifierMiddleware')
 
 ROOT_URLCONF = 'pylinks.urls'
 

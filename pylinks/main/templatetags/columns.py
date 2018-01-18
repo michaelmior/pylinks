@@ -21,7 +21,7 @@ def columns(lst, cols):
         raise StopIteration()
 
     start = 0
-    for i in xrange(cols):
+    for i in range(cols):
         stop = start + len(lst[i::cols])
         yield lst[start:stop]
         start = stop
