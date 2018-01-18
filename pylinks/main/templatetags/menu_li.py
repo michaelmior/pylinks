@@ -1,5 +1,5 @@
-from django.core.urlresolvers import reverse
 from django.template import Library
+from django.urls import reverse
 from django.utils.html import escape, mark_safe
 
 register = Library()

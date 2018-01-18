@@ -1,12 +1,12 @@
 from django.contrib.syndication.views import Feed
 from django.shortcuts import get_object_or_404
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from pylinks.links.models import Category, Link
 
 
 class BaseFeed(Feed):
     def item_guid(self, item):
-        return unicode(item.pk)
+        return str(item.pk)
 
     def item_description(self, item):
         return item.description

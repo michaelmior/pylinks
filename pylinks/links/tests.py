@@ -5,10 +5,12 @@ from .models import Category, Link
 class CategoryModelTests(TestCase):
 
     def test_category_sort(self):
-        Category(title='Test 2', slug='test2').save()
-        Category(title='Test 1', slug='test1').save()
+        Category.objects.create(title='Test 2', slug='test2')
+        Category.objects.create(title='Test 1', slug='test1')
 
-        self.assertEqual(['Test 1', 'Test 2'], map(str, Category.objects.all()))
+        self.assertEqual(
+            ['Test 1', 'Test 2'],
+            [str(c) for c in Category.objects.all()])
 
 class LinkModelTests(TestCase):
     def setUp(self):
@@ -34,21 +36,19 @@ class LinkModelTests(TestCase):
 
 class ListViewTests(TestCase):
     def setUp(self):
-        ca = Category(title='A', slug='a')
-        ca.save()
-        cb = Category(title='B', slug='b')
-        cb.save()
+        ca = Category.objects.create(title='A', slug='a')
+        cb = Category.objects.create(title='B', slug='b')
 
-        link = Link(title='Google', url='https://www.google.ca', visits=1)
-        link.save()
+        link = Link.objects.create(title='Google', url='https://www.google.ca',
+                                   visits=1)
         ca.links.add(link)
 
-        link = Link(title='GitHub', url='https://github.com', visits=2)
-        link.save()
+        link = Link.objects.create(title='GitHub', url='https://github.com',
+                                   visits=2)
         ca.links.add(link)
 
-        link = Link(title='UW', url='https://uwaterloo.ca', visits=3)
-        link.save()
+        link = Link.objects.create(title='UW', url='https://uwaterloo.ca',
+                                   visits=3)
         cb.links.add(link)
 
 class CategoryListViewTests(ListViewTests):
