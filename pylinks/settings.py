@@ -102,6 +102,7 @@ TEMPLATES = [
 
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -137,9 +138,7 @@ INSTALLED_APPS = [
     'grappelli',
     'django.contrib.admin',
     'gunicorn',
-    'linkcheck',
-    'storages',
-    's3_folder_storage',
+    'linkcheck'
 ]
 
 if not os.environ.get('UPLOADCARE_DISABLED', False):
@@ -176,28 +175,11 @@ LOGGING = {
     }
 }
 
-if os.environ.get('AWS_ACCESS_KEY_ID'):
-    DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
-    DEFAULT_S3_PATH = 'media'
-    STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
-    STATIC_S3_PATH = 'static'
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    AWS_QUERYSTRING_AUTH = False
-
-    MEDIA_ROOT = '/%s/' % DEFAULT_S3_PATH
-    MEDIA_URL = '//s3.amazonaws.com/%s/%s/' % \
-            (AWS_STORAGE_BUCKET_NAME, DEFAULT_S3_PATH)
-    STATIC_ROOT = "/%s/" % STATIC_S3_PATH
-    STATIC_URL = '//s3.amazonaws.com/%s/%s/' % \
-            (AWS_STORAGE_BUCKET_NAME, STATIC_S3_PATH)
-    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-else:
-    STATIC_ROOT = 'static'
-    STATIC_URL = '/static/'
-    MEDIA_ROOT = 'media'
-    MEDIA_URL = '/media/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = 'static'
+STATIC_URL = '/static/'
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
 
 ROLLBAR = {
     'access_token': os.environ['ROLLBAR_ACCESS_TOKEN'],
