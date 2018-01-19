@@ -3,6 +3,7 @@
 {% load captureas %}
 {% load menu_li %}
 {% load page_url %}
+{% load static %}
 
 {% captureas title %}
   {% block title %}{% endblock %}
@@ -14,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }} - {{ site.name }}</title>
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
     {% block styles %}{% endblock %}
 
     {% captureas feed_url %}{% block feed_url %}{% endblock %}{% endcaptureas %}

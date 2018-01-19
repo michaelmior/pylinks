@@ -1,5 +1,6 @@
 {% extends "base.htm" %}
 {% load highlight %}
+{% load static %}
 
 {% block title %}
 {% if query %}
@@ -43,5 +44,5 @@
 {% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" href="{{ STATIC_URL }}css/links.css">
+<link rel="stylesheet" href="{% static "css/links.css" %}">
 {% endblock %}
