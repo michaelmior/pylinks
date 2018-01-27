@@ -2,7 +2,7 @@ certifi==2018.1.18
 chardet==3.0.4
 dj-database-url==0.4.2
 Django==2.0.1
-django-grappelli==2.10.1
+django-grappelli==2.11.1
 django-haystack==2.6.1
 django-linkcheck==1.5
 docutils==0.14
