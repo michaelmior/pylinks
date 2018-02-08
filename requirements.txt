@@ -3,7 +3,7 @@ chardet==3.0.4
 dj-database-url==0.4.2
 Django==2.0.2
 django-grappelli==2.11.1
-django-haystack==2.6.1
+django-haystack==2.7.0
 django-linkcheck==1.5
 docutils==0.14
 elasticsearch==6.1.1
