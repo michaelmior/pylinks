@@ -17,7 +17,7 @@ python-ptrace==0.9.3
 pytz==2018.3
 pyuploadcare==2.2.1
 requests==2.18.4
-rollbar==0.13.17
+rollbar==0.13.18
 simplejson==3.13.2
 six==1.11.0
 urllib3==1.22
