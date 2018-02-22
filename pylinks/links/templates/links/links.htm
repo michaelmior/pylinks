@@ -9,7 +9,7 @@
     <a href="{{ link.get_absolute_url }}">{{ link.title }}</a>
 
     {% if link.description %}
-      <div class="link-description">{{ link.description|linebreaks }}</div>
+      <div class="link-description">{{ link.description.strip|linebreaks }}</div>
     {% endif %}
 
     {% if user.is_staff %}
