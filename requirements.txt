@@ -10,7 +10,7 @@ elasticsearch==6.1.1
 gunicorn==19.7.1
 idna==2.6
 jmespath==0.9.3
-newrelic==2.106.1.88
+newrelic==3.0.0.89
 psycopg2==2.7.4
 python-dateutil==2.7.0
 python-ptrace==0.9.3
