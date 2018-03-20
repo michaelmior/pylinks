@@ -6,7 +6,7 @@ django-grappelli==2.11.1
 django-haystack==2.8.0
 django-linkcheck==1.5
 docutils==0.14
-elasticsearch==6.1.1
+elasticsearch==6.2.0
 gunicorn==19.7.1
 idna==2.6
 jmespath==0.9.3
