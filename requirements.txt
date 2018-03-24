@@ -12,7 +12,7 @@ idna==2.6
 jmespath==0.9.3
 newrelic==3.0.0.89
 psycopg2==2.7.4
-python-dateutil==2.7.0
+python-dateutil==2.7.1
 python-ptrace==0.9.3
 pytz==2018.3
 pyuploadcare==2.3.1
