@@ -10,11 +10,11 @@ django-grappelli = "*"
 elasticsearch = "*"
 gunicorn = "*"
 newrelic = "*"
-"psycopg2" = "*"
 pyuploadcare = "*"
 rollbar = "*"
 whitenoise = "*"
 django-haystack = "*"
+"psycopg2-binary" = "*"
 
 [dev-packages]
 
