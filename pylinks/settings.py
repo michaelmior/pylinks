@@ -139,8 +139,7 @@ INSTALLED_APPS = [
     'haystack',
     'grappelli',
     'django.contrib.admin',
-    'gunicorn',
-    'linkcheck'
+    'gunicorn'
 ]
 
 if not os.environ.get('UPLOADCARE_DISABLED', False):
