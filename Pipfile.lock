@@ -142,10 +142,9 @@
         },
         "pyuploadcare": {
             "hashes": [
-                "sha256:1c55476ba3f7a3682052d4957661dafb3a2b98e0bf09b065e4519a182daa510a"
+                "sha256:98c3e9de8c37d2afc31eff8f33b23f6f4d787b5dc8672775504d5bf76ba21544"
             ],
-            "index": "pypi",
-            "version": "==2.5.0"
+            "version": "==2.6.0"
         },
         "requests": {
             "hashes": [
