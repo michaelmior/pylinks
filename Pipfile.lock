@@ -84,10 +84,9 @@
         },
         "newrelic": {
             "hashes": [
-                "sha256:b6d10cb2e6a0efddd7145ef30b923249443d14b9bea4217cfe96d806a80a94b1"
+                "sha256:b528adb0e6a9e4e3b62a87cf154087f70c837a879b3222a5a2664796e1263564"
             ],
-            "index": "pypi",
-            "version": "==4.6.0.106"
+            "version": "==4.8.0.110"
         },
         "psycopg2-binary": {
             "hashes": [
