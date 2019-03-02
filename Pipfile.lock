@@ -151,9 +151,9 @@
         },
         "rollbar": {
             "hashes": [
-                "sha256:07ede5c3f34a37a988159522d4066f8d7bbe853516fdbae39c8bd66f7a386520"
+                "sha256:ee2dd1a2b512f93e9c0f26c8cf6bb28c4f06ae7e0c33a60e39b49337e0d92d57"
             ],
-            "version": "==0.14.6"
+            "version": "==0.14.7"
         },
         "six": {
             "hashes": [
