@@ -15,6 +15,7 @@ rollbar = "*"
 whitenoise = "*"
 django-haystack = "*"
 "psycopg2-binary" = "*"
+sqlparse = "*"
 
 [dev-packages]
 
