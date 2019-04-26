@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ec5dfca987df20cd16e0bad360b0be80a1af505852631b3a38ac4d65567ef2f8"
+            "sha256": "0fd1c22ce9c046a143e38ccebd180f18bd1dedd7934fdee8e6284d06d3f64556"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -54,19 +54,17 @@
             "version": "==2.12.2"
         },
         "django-haystack": {
-            "hashes": [
-                "sha256:8b54bcc926596765d0a3383d693bcdd76109c7abb6b2323b3984a39e3576028c"
-            ],
-            "index": "pypi",
-            "version": "==2.8.1"
+            "editable": true,
+            "git": "https://github.com/michaelmior/django-haystack.git",
+            "ref": "14dcc68f28d4d7199b826b9362a5186b4e2e84dd"
         },
         "elasticsearch": {
             "hashes": [
-                "sha256:7546cc08e3899716e12fe67d12d7cfe9a64647014d1134b014c3c392b63cad42",
-                "sha256:aada5cfdc4a543c47098eb3aca6663848ef5d04b4324935ced441debc11ec98b"
+                "sha256:c621f2272bb2f000d228dc7016d058a1f90f15babdc938240b9f2d13690222db",
+                "sha256:cf6cf834b6d0172dac5e704c398a11d1917cf61f15d32b79b1ddad4cd673c4b1"
             ],
             "index": "pypi",
-            "version": "==6.3.1"
+            "version": "==7.0.0"
         },
         "gunicorn": {
             "hashes": [
@@ -87,6 +85,7 @@
             "hashes": [
                 "sha256:3cd496022c6906ee3cdbf27c67ec3e03922830bfebbca4549ef6f2e58cf719e2"
             ],
+            "index": "pypi",
             "version": "==4.18.0.118"
         },
         "psycopg2-binary": {
@@ -120,6 +119,7 @@
                 "sha256:f1dc2b7b2748084b890f5d05b65a47cd03188824890e9a60818721fd492249fb",
                 "sha256:fcbe7cf3a786572b73d2cd5f34ed452a5f5fac47c9c9d1e0642c457a148f9f88"
             ],
+            "index": "pypi",
             "version": "==2.8.2"
         },
         "python-dateutil": {
@@ -174,10 +174,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:904bd981d6371bb95a200c0ec9dba5ba7cc980f2d6b125bd793fefe3293be388",
-                "sha256:a9645efd62b9fc1c7cad8ed93e162aad4c6bfd90e143966ddd4099b78cd244be"
+                "sha256:4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0",
+                "sha256:9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
             ],
-            "version": "==1.25.1"
+            "version": "==1.24.2"
         },
         "whitenoise": {
             "hashes": [

@@ -13,7 +13,7 @@ newrelic = "*"
 pyuploadcare = "*"
 rollbar = "*"
 whitenoise = "*"
-django-haystack = "*"
+django-haystack = {editable = true, ref = "14dcc68f28d4d7199b826b9362a5186b4e2e84dd", git = "https://github.com/michaelmior/django-haystack.git"}
 "psycopg2-binary" = "*"
 sqlparse = "*"
 
