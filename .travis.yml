@@ -30,5 +30,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: KcTfWxrPgUWwloAK51JRxYLDNBov5KI6bwLqHHN7BL0sMWXQwrPKTc2ym5zcn0/S5bAL2LR1fw7240oKKDrZYvsm3KDcWOXsosfCmF/7ctBPVU/FpbgLVgXP1jwJAHJDpTbZXyAqSGfwgqAAPNWSmBmHG4Xvs7IJKtzz1Tgab0I=
+    secure: hCBCvj6l6XobgjOX4P1+RZAoECDXHjDoBtjpc7LTBCXmeDwL7VY3sXrGKlgH7fGAGvw612W/uykqN+u5InhK2Cty5vxBnmYHHHX9+b2ZJ6KGDJ/utKCan2cGvRKKf3kGJ123hBya/T0mk57ijjduhWcEZaK76I938G1sopkmfhs=
   app: pseupdate
+  on:
+    repo: michaelmior/pylinks
