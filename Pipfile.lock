@@ -62,11 +62,11 @@
         },
         "elasticsearch": {
             "hashes": [
-                "sha256:7546cc08e3899716e12fe67d12d7cfe9a64647014d1134b014c3c392b63cad42",
-                "sha256:aada5cfdc4a543c47098eb3aca6663848ef5d04b4324935ced441debc11ec98b"
+                "sha256:5e08776fbb30c6e92408c7fa8c37d939210d291475ae2f364f0497975918b6fe",
+                "sha256:8c7e2374f53ee1b891ff2804116e0c7fb517585d6d5788ba668686bbc9d82e2d"
             ],
             "index": "pypi",
-            "version": "==6.3.1"
+            "version": "==7.9.1"
         },
         "gunicorn": {
             "hashes": [
