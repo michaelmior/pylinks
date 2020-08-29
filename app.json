@@ -30,6 +30,22 @@
     "rollbar:free"
   ],
   "scripts": {
+    "test": "sh -c 'python manage.py collectstatic && python manage.py test pylinks'",
+    "test-setup": "sh -c 'pip install whoosh && python manage.py migrate && python manage.py collectstatic --noinput'",
     "postdeploy": "sh -c 'python manage.py migrate --noinput; python manage.py collectstatic --noinput'"
+  },
+  "environments": {
+    "test": {
+      "env": {
+        "DJANGO_DEBUG": 1,
+        "UPLOADCARE_DISABLED": 1,
+        "ROLLBAR_DISABLED": 1,
+        "DJANGO_SECRET_KEY": "foo",
+        "HOSTNAMES": "localhost"
+      },
+      "addons": [
+        "heroku-postgresql:in-dyno"
+      ]
+    }
   }
 }
