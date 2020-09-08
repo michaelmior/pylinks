@@ -30,6 +30,6 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: Y2B6rU+c8aBb7LcW2aU2v+9twK6EPlpY7apFNVKGFCB/seZ5Ooc2vOtuIRYQs+FftgLR5Cs4nU8ceYJZJA8qIN2qiVq5CeL4qbOfZ5lK2ijsp2M58HYqU5s45Gv9NSIvMg4PKjkRJojy+sodEL/f9SI+Ktx+Dr8OlbGcoiw8aTM=
+    secure: WPBiEVISHneaYNifZotFKAjvuV3UV9Q6OjEsjHC7wFfRxDIX2oh1kVsdzkAHbQvaZo65nEnJUJrO15jeAdZn1+lF87iCX9w1iNt8Iz20N9Hvc/aYfJTHasbxy4x0uP5zsyW4bNVuysrPT0t5mVP3lfGtg80G5h8v9XGL00iE52g=
   app: pseupdate
   on: main
