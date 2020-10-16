@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 import os
 
-from django.db import models, migrations
+from django.db import migrations, models
 
 if not os.environ.get('UPLOADCARE_DISABLED', False):
     from pylinks.links.utils import LinkFileField

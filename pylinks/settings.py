@@ -1,5 +1,6 @@
 # Django settings for pylinks project.
 import os
+
 import dj_database_url
 
 PYLINKS_HOME = os.environ.get('PYLINKS_HOME', None)

@@ -1,4 +1,5 @@
 from django.conf.urls import url
+
 from pylinks.search.views import SearchView
 
 urlpatterns = (

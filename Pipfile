@@ -18,6 +18,7 @@ django-haystack = "*"
 sqlparse = "*"
 
 [dev-packages]
+isort = {extras = ["pipfile_deprecated_finder"], version = "*"}
 
 [requires]
 python_version = "3.6"

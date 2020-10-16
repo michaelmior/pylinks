@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.test.utils import override_settings
 
+
 class GoogleAnalyticsTests(TestCase):
     @override_settings(GA_PROPERTY_ID='UA-123456-7')
     def test_ga_tracking(self):

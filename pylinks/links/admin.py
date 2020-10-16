@@ -1,6 +1,7 @@
 from django.contrib import admin
-from pylinks.main.admin import ModelAdmin
+
 from pylinks.links import models
+from pylinks.main.admin import ModelAdmin
 
 
 class CategoryAdmin(ModelAdmin):

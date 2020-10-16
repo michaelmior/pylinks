@@ -21,10 +21,12 @@ before_install:
   restart
 install:
 - pip install pipenv
-- pipenv install
+- pipenv install --dev
 before_script:
 - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
 script:
+- isort --atomic .
+- git diff --exit-code
 - python manage.py collectstatic
 - python manage.py test pylinks
 deploy:

@@ -3,8 +3,8 @@ import re
 from django.contrib.syndication.views import Feed
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
-from pylinks.links.models import Category, Link
 
+from pylinks.links.models import Category, Link
 
 control_re = re.compile(r'[\x00-\x08\x0B-\x0C\x0E-\x1F]')
 

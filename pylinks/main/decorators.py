@@ -1,5 +1,6 @@
-from django.shortcuts import render
 from functools import wraps
+
+from django.shortcuts import render
 
 
 def render_to(template=None, content_type=None):

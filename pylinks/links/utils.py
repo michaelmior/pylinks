@@ -1,9 +1,10 @@
 import six
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from pyuploadcare.api_resources import UUID_WITH_EFFECTS_REGEX, File
 from pyuploadcare.dj.models import FileField
-from pyuploadcare.api_resources import File, UUID_WITH_EFFECTS_REGEX
 from pyuploadcare.exceptions import InvalidRequestError
+
 
 # Patch File to pass through S3 URLs
 class LinkFile(File):

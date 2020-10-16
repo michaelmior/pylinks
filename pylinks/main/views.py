@@ -1,7 +1,7 @@
 import string
 
-from pylinks.main.decorators import render_to
 from pylinks.links.models import Category, Link
+from pylinks.main.decorators import render_to
 
 
 @render_to('category_index.htm')

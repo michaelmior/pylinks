@@ -1,7 +1,8 @@
+from django.db.models import F
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView
-from django.http import Http404, HttpResponseRedirect
-from django.db.models import F
+
 from pylinks.links.models import Category, Link
 
 

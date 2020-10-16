@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from .models import Category, Link
 
+
 class CategoryModelTests(TestCase):
 
     def test_category_sort(self):

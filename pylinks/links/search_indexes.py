@@ -1,4 +1,5 @@
 from haystack import indexes
+
 from pylinks.links.models import Link
 
 

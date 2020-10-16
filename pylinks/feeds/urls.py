@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from pylinks.feeds import feeds
 
+from pylinks.feeds import feeds
 
 urlpatterns = (
     url(r'^category/(?P<slug>.*)/', feeds.CategoryFeed(),
