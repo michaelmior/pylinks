@@ -55,7 +55,7 @@ class Link(DatedModel):
         return self.title
 
     def __repr__(self):
-        return '<Link: {}>'.format(self.title)
+        return f'<Link: {self.title}>'
 
     class Meta:
         ordering = ('title',)

@@ -20,15 +20,15 @@ class LinkFile(File):
     @property
     def cdn_url(self):
         if self.s3_path is not None:
-            return u'http://s3.amazonaws.com/{bucket}/media/{path}'.format(bucket=settings.AWS_STORAGE_BUCKET_NAME, path=self.s3_path)
+            return f'http://s3.amazonaws.com/{settings.AWS_STORAGE_BUCKET_NAME}/media/{self.s3_path}'
         else:
             return File.cdn_url.fget(self)
 
     def __repr__(self):
         if self.uuid is None:
-            return u'<LinkFile {s3_path}>'.format(s3_path=self.s3_path)
+            return f'<LinkFile {self.s3_path}>'
         else:
-            return '<LinkFile {uuid}>'.format(uuid=self.uuid)
+            return f'<LinkFile {self.uuid}>'
 
 # Patch FileField to return LinkFile instances
 class LinkFileField(FileField):
@@ -55,5 +55,5 @@ class LinkFileField(FileField):
             return LinkFile(value)
         except InvalidRequestError as exc:
             raise ValidationError(
-                'Invalid value for a field: {exc}'.format(exc=exc)
+                f'Invalid value for a field: {exc}'
             )

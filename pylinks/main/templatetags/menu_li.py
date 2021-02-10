@@ -14,5 +14,4 @@ def menu_li(context, url_name, title):
     else:
         active_class = ''
 
-    return mark_safe('<li%s><a href="%s">%s</a></li>' % \
-            (active_class, menu_url, escape(title)))
+    return mark_safe(f'<li{active_class}><a href="{menu_url}">{escape(title)}</a></li>')
