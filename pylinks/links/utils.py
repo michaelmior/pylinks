@@ -1,4 +1,3 @@
-import six
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from pyuploadcare.api_resources import UUID_WITH_EFFECTS_REGEX, File
@@ -34,7 +33,7 @@ class LinkFile(File):
 class LinkFileField(FileField):
     def __init__(self, *args, **kwargs):
         kwargs.pop('upload_to', None)
-        super(LinkFileField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def to_python(self, value):
         if value is None or value == '':
@@ -43,7 +42,7 @@ class LinkFileField(FileField):
         if isinstance(value, File):
             return value
 
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             raise ValidationError(
                 'Invalid value for a field: string was expected'
             )

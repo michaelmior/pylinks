@@ -10,7 +10,7 @@ class SearchView(FacetedSearchView):
     template = 'search/search.htm'
 
     def __init__(self, *args, **kwargs):
-        super(SearchView, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         self.form_class = FacetedSearchForm
         self.searchqueryset = SearchQuerySet()
@@ -36,6 +36,6 @@ class SearchView(FacetedSearchView):
         return (paginator, page)
 
     def extra_context(self):
-        context = super(SearchView, self).extra_context()
+        context = super().extra_context()
         context.update({'is_paginated': bool(self.query)})
         return context

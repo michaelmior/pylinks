@@ -18,14 +18,14 @@ class CategoryListView(LinkListView):
     def get(self, request, *args, **kwargs):
         # We set the category here to be used later
         self.category = get_object_or_404(Category, slug=kwargs.get('slug'))
-        return super(CategoryListView, self).get(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
     def get_queryset(self):
         return self.category.links.all()
 
     def get_context_data(self, *args, **kwargs):
         # Just add the category to the context
-        context = super(CategoryListView, self) \
+        context = super() \
                     .get_context_data(*args, **kwargs)
 
         context['category'] = self.category
@@ -39,7 +39,7 @@ class AlphaListView(LinkListView):
 
     def get(self, request, *args, **kwargs):
         self.letter = kwargs.get('letter')
-        return super(AlphaListView, self).get(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
     def get_queryset(self):
         return Link.objects.filter(title__istartswith=self.letter)

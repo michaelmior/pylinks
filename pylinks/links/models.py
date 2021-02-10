@@ -64,4 +64,4 @@ class Link(DatedModel):
         if self.file:
             self.url = self.file.cdn_url
 
-        return super(Link, self).save(*args, **kwargs)
+        return super().save(*args, **kwargs)
