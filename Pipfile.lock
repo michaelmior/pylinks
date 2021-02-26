@@ -172,10 +172,10 @@
         },
         "rollbar": {
             "hashes": [
-                "sha256:96b63df27a47232aa16a142d2f5812073f8bf7db2b81c5f7981b9a4d4659468c"
+                "sha256:5e80fe7c9b15e84f5b72e45ebaa85bba1c13234e447a5f3801d094eb379c2d0e"
             ],
             "index": "pypi",
-            "version": "==0.15.1"
+            "version": "==0.15.2"
         },
         "six": {
             "hashes": [
