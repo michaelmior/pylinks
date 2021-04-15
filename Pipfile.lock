@@ -48,11 +48,11 @@
         },
         "django-grappelli": {
             "hashes": [
-                "sha256:4c499a8c9b1b4999fa361c69f58970959dc3530c36f5c5454d4c360e1962a0b3",
-                "sha256:941b1142088d35c3f91eda287fddea5f71b37990e43c1f588067e96ea04ddac8"
+                "sha256:8042824c57602685ae6335ff6efa5f13323e1c9993fc622c1d8470a70dfad95e",
+                "sha256:cb5763854ff59b6c0b3032aa0ac09ba39f14bd577d7612fd678f37ad37bd809c"
             ],
             "index": "pypi",
-            "version": "==2.14.3"
+            "version": "==2.14.4"
         },
         "django-haystack": {
             "hashes": [
@@ -231,9 +231,10 @@
         },
         "cerberus": {
             "hashes": [
-                "sha256:302e6694f206dd85cb63f13fd5025b31ab6d38c99c50c6d769f8fa0b0f299589"
+                "sha256:7aff49bc793e58a88ac14bffc3eca0f67e077881d3c62c621679a621294dd174",
+                "sha256:eec10585c33044fb7c69650bc5b68018dac0443753337e2b07684ee0f3c83329"
             ],
-            "version": "==1.3.2"
+            "version": "==1.3.3"
         },
         "certifi": {
             "hashes": [
@@ -278,11 +279,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:c9db46394197244adf2f0b08ec5bc3cf16757e9590b02af1fca085c16c0d600a",
-                "sha256:d2d46ef77ffc85cbf7dac7e81dd663fde71c45326131bea8033b9bad42268ebe"
+                "sha256:2ec0faae539743ae6aaa84b49a169670a465f7f5d64e6add98388cc29fd1f2f6",
+                "sha256:c9356b657de65c53744046fa8f7358afe0714a1af7d570c00c3835c2d724a7c1"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==3.10.0"
+            "version": "==3.10.1"
         },
         "isort": {
             "extras": [
