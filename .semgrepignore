@@ -1,0 +1,3 @@
+.git/
+:include .gitignore
+pylinks/main/static/js/bootstrap/*
