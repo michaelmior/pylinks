@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6f695dd8a5103d1f4e9bd640a16bcc470b8e42917192a43f7454b2c146affb5a"
+            "sha256": "208300bcb608473dbdc90f83f1d2c36b70186350188ac96f8e96f6e1716ac6bc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -63,14 +63,15 @@
         },
         "elasticsearch": {
             "hashes": [
-                "sha256:4ebd34fd223b31c99d9f3b6b6236d3ac18b3046191a37231e8235b06ae7db955",
-                "sha256:a725dd923d349ca0652cf95d6ce23d952e2153740cf4ab6daf4a2d804feeed48"
+                "sha256:1840fea8c305224b8c28acabc8697f739cdfb03618f2d2427b42838971a787f6",
+                "sha256:df35d8c638f946f098a74681b18611bdf27ba469fa2063e3dfc8bdc290b11419"
             ],
             "index": "pypi",
-            "version": "==7.10.1"
+            "version": "==7.12.1"
         },
         "gunicorn": {
             "hashes": [
+                "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e",
                 "sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8"
             ],
             "index": "pypi",
