@@ -25,11 +25,11 @@
         },
         "charset-normalizer": {
             "hashes": [
-                "sha256:88fce3fa5b1a84fdcb3f603d889f723d1dd89b26059d0123ca435570e848d5e1",
-                "sha256:c46c3ace2d744cfbdebceaa3c19ae691f53ae621b39fd7570f59d14fb7f2fd12"
+                "sha256:0c8911edd15d19223366a194a513099a302055a962bca2cec0f54b8b63175d8b",
+                "sha256:f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
             ],
             "markers": "python_version >= '3'",
-            "version": "==2.0.3"
+            "version": "==2.0.4"
         },
         "dj-database-url": {
             "hashes": [
@@ -88,17 +88,22 @@
         },
         "newrelic": {
             "hashes": [
-                "sha256:07aa639b6c6188c20f9fdc1fbab431c5beb7fa88001dbb3c05b67a213514a17b",
-                "sha256:590d6011c09a456a3051dab8b394613d27c0df60d464d5994a15c91f066baa35",
-                "sha256:599adb2e588e7b6dfeb6112bca8aa216daf34150e5c98901a37ecfbb4f383e8b",
-                "sha256:8df93cae2c0d979aedcc9980a98f8f7c6e34865866a534d8720377ed1516d9ad",
-                "sha256:96a441ff4147a28ab0b74f1825ce1028d4fbd5d1cfba1db80eb823ff2a86cd07",
-                "sha256:a75fd3ab8d5a4cde8678ad90178e49cab4059dfaf07d4f7f08e580995444bc78",
-                "sha256:bfbf18755bf8c3f1a317345724b7e2b88dd303d735e471a149a5b689716bc1e4",
-                "sha256:e4a734110d0b08fe2af5cf2c90e4003ec4cab9e901402694a7f9a91bbd1b98fc"
+                "sha256:21f37b6553997f077d0080426e689d3b0252a796cf02bd69de04c60538a92a3d",
+                "sha256:466fbe9b92ab246c13d8bda65c6ba8cfe2707227175466a6690f5fac6c6c3ba9",
+                "sha256:57d547d6591b2aef1d56b90c5775911d24473a7c93527abffe4783ede8ebc695",
+                "sha256:5c993040ff20f6807ae08492a507ef4b232f747ae8d04f3fcc826d0420e028b0",
+                "sha256:5f1b835c523e151ba0dc0270ad39717ae2ee62d7d57fded8c7e8370c89e89365",
+                "sha256:9217f9fe6d0dff45c6d50e4d75dc51891ef30e143d06a0271c6c306efd7846c4",
+                "sha256:9cc250bd5a6968eaef7ae71dc5da1ccb4ec9c2539cfe76ccaa2909365626aefd",
+                "sha256:a175bea1439b2f1af7756f635cccf9ac9b4ac7a5368cf7496edd3eaa59c07c23",
+                "sha256:a651b3b366a44fe54795528b73ce023f24b36f680bf467dbb94161daeb3b9da5",
+                "sha256:c6d9a8b70f6aaaca6d5752ea2f162ccdb84a9c07117004b3239345b99e94ff3b",
+                "sha256:cac282f199d4d0b9c748db178dcc7df21efbd321f51abe7ee63493474140882a",
+                "sha256:d0a1643fb0bde39559c889262c4e37183cd23d006ba63e2185f0e4dc113e2e12",
+                "sha256:d930e514588182ac082836c89dbc498312e1df14450a83e9527faeb9a6c78721"
             ],
             "index": "pypi",
-            "version": "==6.6.0.162"
+            "version": "==6.8.0.163"
         },
         "psycopg2-binary": {
             "hashes": [
@@ -249,11 +254,11 @@
         },
         "charset-normalizer": {
             "hashes": [
-                "sha256:88fce3fa5b1a84fdcb3f603d889f723d1dd89b26059d0123ca435570e848d5e1",
-                "sha256:c46c3ace2d744cfbdebceaa3c19ae691f53ae621b39fd7570f59d14fb7f2fd12"
+                "sha256:0c8911edd15d19223366a194a513099a302055a962bca2cec0f54b8b63175d8b",
+                "sha256:f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
             ],
             "markers": "python_version >= '3'",
-            "version": "==2.0.3"
+            "version": "==2.0.4"
         },
         "colorama": {
             "hashes": [
@@ -286,11 +291,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:079ada16b7fc30dfbb5d13399a5113110dab1aa7c2bc62f66af75f0b717c8cac",
-                "sha256:9f55f560e116f8643ecf2922d9cd3e1c7e8d52e683178fecd9d08f6aa357e11e"
+                "sha256:0645585859e9a6689c523927a5032f2ba5919f1f7d0e84bd4533312320de1ff9",
+                "sha256:51c6635429c77cf1ae634c997ff9e53ca3438b495f10a55ba28594dd69764a8b"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==4.6.1"
+            "version": "==4.6.3"
         },
         "isort": {
             "extras": [
