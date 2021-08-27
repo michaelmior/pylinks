@@ -57,10 +57,11 @@
         },
         "django-haystack": {
             "hashes": [
-                "sha256:8b54bcc926596765d0a3383d693bcdd76109c7abb6b2323b3984a39e3576028c"
+                "sha256:2312bfa56ae4a2f70ad47a631ebd2fda64ddbc1fabc5b1bc911d5865929aa63a",
+                "sha256:91ba27169aa785dc611b69ded52f8013b5b630cec10a883d46b8c028c5e18e6f"
             ],
             "index": "pypi",
-            "version": "==2.8.1"
+            "version": "==3.1.0"
         },
         "elasticsearch": {
             "hashes": [
@@ -291,11 +292,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:7b30a78db2922d78a6f47fb30683156a14f3c6aa5cc23f77cc8967e9ab2d002f",
-                "sha256:ed5157fef23a4bc4594615a0dd8eba94b2bb36bf2a343fa3d8bb2fa0a62a99d5"
+                "sha256:9e04bf59076a15a9b6dd9c27806e8fcdf15280ba529c6a8cc3f4d5b4875bdd61",
+                "sha256:c4eb3dec5f697682e383a39701a7de11cd5c02daf8dd93534b69e3e6473f6b1b"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==4.6.4"
+            "version": "==4.7.1"
         },
         "isort": {
             "extras": [
