@@ -49,11 +49,11 @@
         },
         "django-grappelli": {
             "hashes": [
-                "sha256:b9aa386d63a95c37f3741aac98bd545c70ff51cf9104a1419dd6568d2e2cf2ea",
-                "sha256:bc38e7c2585c20b6c8c6a4d984beb4c0fe62ae13421d1fe6614d04dda2096014"
+                "sha256:e21dc664faef6990006c05a6939ee1e2839e13834a338b1f644ea6edb19f68de",
+                "sha256:edfb8539d000d5908836d909134021c6b3ab3bd2975e7524385b9b3736548598"
             ],
             "index": "pypi",
-            "version": "==2.15.1"
+            "version": "==2.15.3"
         },
         "django-haystack": {
             "hashes": [
