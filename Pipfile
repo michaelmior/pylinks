@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 dj-database-url = "*"
-django = "==2.2.20"
+django = "==3.2.12"
 django-grappelli = "*"
 elasticsearch = "==7.15.2"
 gunicorn = "*"
