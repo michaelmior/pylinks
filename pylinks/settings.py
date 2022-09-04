@@ -151,7 +151,7 @@ INSTALLED_APPS = [
     'gunicorn'
 ]
 
-if not os.environ.get('UPLOADCARE_DISABLED', False):
+if os.environ.get('UPLOADCARE_SECRET'):
     INSTALLED_APPS.append('pyuploadcare.dj')
 
 GRAPPELLI_ADMIN_TITLE = 'Link database'
@@ -191,16 +191,20 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
 
-ROLLBAR = {
-    'access_token': os.environ['ROLLBAR_ACCESS_TOKEN'],
-    'environment': 'development' if DEBUG else 'production',
-    'branch': 'master',
-    'root': os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-} if not os.environ.get('ROLLBAR_DISABLED', False) else {}
+ROLLBAR = {}
+if os.environ.get('ROLLBAR_ACCESS_TOKEN'):
+    ROLLBAR = {
+        'access_token': os.environ['ROLLBAR_ACCESS_TOKEN'],
+        'environment': 'development' if DEBUG else 'production',
+        'branch': 'master',
+        'root': os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+    }
 
+# Note that uploads will not work if these are not set, but we need to be
+# able to run without specified values so we can build the app image
 UPLOADCARE = {
-    'pub_key': os.environ['UPLOADCARE_PUB_KEY'],
-    'secret': os.environ['UPLOADCARE_SECRET']
-} if not os.environ.get('UPLOADCARE_DISABLED', False) else {}
+    'pub_key': os.environ.get('UPLOADCARE_PUB_KEY'),
+    'secret': os.environ.get('UPLOADCARE_SECRET')
+}
 
 GA_PROPERTY_ID = os.environ.get('GA_PROPERTY_ID', None)

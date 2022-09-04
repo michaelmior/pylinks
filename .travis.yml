@@ -5,8 +5,6 @@ sudo: required
 env:
   global:
   - DJANGO_DEBUG=1
-  - UPLOADCARE_DISABLED=1
-  - ROLLBAR_DISABLED=1
   - DJANGO_SECRET_KEY=foo
   - DATABASE_URL=postgres://travis@127.0.0.1/travis_ci_test
   - HOSTNAMES=localhost
@@ -29,9 +27,3 @@ script:
 - git diff --exit-code
 - python manage.py collectstatic
 - python manage.py test pylinks
-deploy:
-  provider: heroku
-  api_key:
-    secure: bjkBe5h6cKVkcxMBNIWjInN2HJ+1T1C33zhgRV5nlEeEfdIAz8saOS966fAUpwAZIQcX0FisHyIcfqQoEVju49yEncOGWs3uXRMTdhMCKaOi+6rQfjgc6Movlg3Z5BPDbnOtAcSrwJIX7yMG9C8ow8eWWzvTKV6JmLB1KTX301w=
-  app: pseupdate
-  on: main

@@ -1,0 +1,44 @@
+app = "pseupdate"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[deploy]
+  release_command = "pipenv run python manage.py migrate"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  internal_port = 8000
+  protocol = "tcp"
+
+
+  # [[services.http_checks]]
+  #   interval = "15s"
+  #   grace_period = "5s"
+  #   method = "get"
+  #   path = "/"
+  #   protocol = "http"
+  #   timeout = "2s"
+  #   tls_skip_verify = false
+
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
