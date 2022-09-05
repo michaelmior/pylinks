@@ -1,0 +1,70 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  pre_job:
+    name: Check duplicate
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@master
+        with:
+          cancel_others: true
+          concurrent_skipping: same_content
+          do_not_skip: '["pull_request", "schedule", "workflow_dispatch"]'
+
+  build:
+    name: Test
+    needs: pre_job
+    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    runs-on: ubuntu-latest
+    env:
+      DJANGO_SECRET_KEY: 'dummy'
+      DATABASE_URL: postgres://postgres:postgres@localhost/ci_test
+      PGPASSWORD: postgres
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
+    steps:
+      - name: Configure sysctl limits
+        run: |
+          sudo swapoff -a
+          sudo sysctl -w vm.swappiness=1
+          sudo sysctl -w fs.file-max=262144
+          sudo sysctl -w vm.max_map_count=262144
+
+      - name: Runs Elasticsearch
+        uses: elastic/elastic-github-actions/elasticsearch@master
+        with:
+          stack-version: 7.9.1
+          security-enabled: false
+
+      - run: git config --global core.autocrlf input
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.6'
+          cache: 'pipenv'
+      - name: Install pipenv
+        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+      - run: pipenv install
+      - run: pipenv run python manage.py collectstatic --noinput
+      - run: psql -c 'CREATE DATABASE ci_test;' -h 127.0.0.1 -U postgres
+      - run: pipenv run python manage.py test

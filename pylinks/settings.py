@@ -17,7 +17,7 @@ DATABASES = {'default': db_config}
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'ENGINE': 'haystack.backends.elasticsearch7_backend.Elasticsearch7SearchEngine',
         'URL': os.environ.get('BONSAI_URL') or
                os.environ.get('SEARCHBOX_URL') or
                'http://localhost:9200/',
