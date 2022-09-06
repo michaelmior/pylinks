@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.core.exceptions import ValidationError
-from pyuploadcare.api_resources import UUID_WITH_EFFECTS_REGEX, File
+from pyuploadcare.resources import UUID_WITH_EFFECTS_REGEX, File
 from pyuploadcare.dj.models import FileField
 from pyuploadcare.exceptions import InvalidRequestError
 
