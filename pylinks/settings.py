@@ -15,6 +15,8 @@ db_config = dj_database_url.config()
 db_config['ATOMIC_REQUESTS'] = True
 DATABASES = {'default': db_config}
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
