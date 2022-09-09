@@ -5,7 +5,7 @@ kill_timeout = 5
 processes = []
 
 [deploy]
-  release_command = "pipenv run python manage.py migrate && pipenv run python manage.py update_index"
+  release_command = "bash -c 'pipenv run python manage.py migrate && pipenv run python manage.py update_index'"
 
 [experimental]
   allowed_public_ports = []
