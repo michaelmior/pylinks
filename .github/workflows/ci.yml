@@ -48,12 +48,6 @@ jobs:
           sudo sysctl -w fs.file-max=262144
           sudo sysctl -w vm.max_map_count=262144
 
-      - name: Runs Elasticsearch
-        uses: elastic/elastic-github-actions/elasticsearch@master
-        with:
-          stack-version: 7.9.1
-          security-enabled: false
-
       - run: git config --global core.autocrlf input
       - uses: actions/checkout@v3
         with:

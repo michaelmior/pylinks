@@ -5,3 +5,4 @@ venv/
 .env
 pylinks/whoosh_index/
 static/
+index/
