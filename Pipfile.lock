@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7ad734ac4200a7596a7a8d3b2b25ddd839532de6b189ad0ce1577c44a3e2927c"
+            "sha256": "768f9299bf95fac8785af19ca30fc3ce578355d719faf1d18cf005d6c0fbd5e7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -50,11 +50,11 @@
         },
         "django-grappelli": {
             "hashes": [
-                "sha256:8042824c57602685ae6335ff6efa5f13323e1c9993fc622c1d8470a70dfad95e",
-                "sha256:cb5763854ff59b6c0b3032aa0ac09ba39f14bd577d7612fd678f37ad37bd809c"
+                "sha256:7d60304200f4ea202862fda3b0efaa91c70280841ca22b1b22f49f1017ed2afc",
+                "sha256:a98883407f995896f4c4d108ef3ef6cfc00e581211738c5a13c536950a95bcc8"
             ],
             "index": "pypi",
-            "version": "==2.14.4"
+            "version": "==3.0.3"
         },
         "django-haystack": {
             "hashes": [
@@ -168,7 +168,7 @@
                 "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61",
                 "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
+            "markers": "python_version >= '3.6'",
             "version": "==2.27.1"
         },
         "rollbar": {
@@ -401,7 +401,7 @@
                 "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61",
                 "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
+            "markers": "python_version >= '3.6'",
             "version": "==2.27.1"
         },
         "requirementslib": {
