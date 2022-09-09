@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 dj-database-url = "==0.5.0"
-django = "==2.2.20"
+django = "==3.2.15"
 django-grappelli = "==2.14.4"
 gunicorn = "*"
 newrelic = "*"
