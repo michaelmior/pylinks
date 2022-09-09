@@ -17,21 +17,12 @@ DATABASES = {'default': db_config}
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch7_backend.Elasticsearch7SearchEngine',
-        'URL': os.environ.get('BONSAI_URL') or
-               os.environ.get('SEARCHBOX_URL') or
-               'http://localhost:9200/',
-        'INDEX_NAME': 'documents',
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.abspath(os.path.join(os.path.dirname(__file__), 'index')),
+        'INCLUDE_SPELLING': True,
     },
 }
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
-
-# Use Whoosh on Heroku
-if 'HEROKU_TEST_RUN_ID' in os.environ:
-    HAYSTACK_CONNECTIONS['default'] = {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
-    }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
