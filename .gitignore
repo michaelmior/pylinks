@@ -3,6 +3,5 @@ venv/
 .mypy_cache/
 .DS_Store
 .env
-pylinks/whoosh_index/
+pylinks/index/
 static/
-index/
