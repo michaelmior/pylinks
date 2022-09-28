@@ -14,17 +14,17 @@ def page_url(context, page):
 
     Requires Django 1.5+ and the request context processor
     """
-    match = context['request'].resolver_match
+    match = context["request"].resolver_match
 
     url_kwargs = match.kwargs
-    url_kwargs['page'] = page
+    url_kwargs["page"] = page
 
     try:
         return reverse(match.url_name, args=match.args, kwargs=url_kwargs)
     except NoReverseMatch:
-        del url_kwargs['page']
+        del url_kwargs["page"]
         url = reverse(match.url_name, args=match.args, kwargs=url_kwargs)
-        get = context['request'].GET.copy()
-        get['page'] = page
+        get = context["request"].GET.copy()
+        get["page"] = page
 
-        return url + '?' + get.urlencode()
+        return url + "?" + get.urlencode()

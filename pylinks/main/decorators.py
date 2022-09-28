@@ -45,6 +45,7 @@ def render_to(template=None, content_type=None):
         return render_to_response(template_name, {'bar': bar})
 
     """
+
     def renderer(function):
         @wraps(function)
         def wrapper(request, *args, **kwargs):
@@ -52,10 +53,13 @@ def render_to(template=None, content_type=None):
             if output and not isinstance(output, dict):
                 return output
 
-            return render(request,
-                output and output.get('TEMPLATE') or template,
+            return render(
+                request,
+                output and output.get("TEMPLATE") or template,
                 output,
-                content_type=content_type
+                content_type=content_type,
             )
+
         return wrapper
+
     return renderer

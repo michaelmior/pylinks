@@ -7,10 +7,11 @@ register = template.Library()
 
 @register.simple_tag(takes_context=True)
 def analytics(context):
-    if not getattr(settings, 'GA_PROPERTY_ID', None):
-        return ''
+    if not getattr(settings, "GA_PROPERTY_ID", None):
+        return ""
 
-    return mark_safe('''
+    return mark_safe(
+        """
         <script type="text/javascript">
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', '%s']);
@@ -22,4 +23,6 @@ def analytics(context):
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
         </script>
-        ''' % escape(settings.GA_PROPERTY_ID))
+        """
+        % escape(settings.GA_PROPERTY_ID)
+    )

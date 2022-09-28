@@ -8,19 +8,18 @@ class DatedModel(models.Model):
 
     class Meta:
         abstract = True
-        get_latest_by = 'updated_time'
+        get_latest_by = "updated_time"
 
 
 class SiteInfo(models.Model):
-    site = models.OneToOneField(Site, primary_key=True,
-                                on_delete=models.CASCADE)
+    site = models.OneToOneField(Site, primary_key=True, on_delete=models.CASCADE)
     description = models.TextField(null=True)
 
     def __self__(self):
         return str(self.site)
 
     class Meta:
-        verbose_name_plural = 'site info'
+        verbose_name_plural = "site info"
 
     def save(self, *args, **kwargs):
         # Ensure the site cache is cleared so the new
