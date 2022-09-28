@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from pylinks.search.views import SearchView
 
 urlpatterns = (
-    url(r'^$', SearchView(), name='haystack_search'),
+    re_path(r'^$', SearchView(), name='haystack_search'),
 )
