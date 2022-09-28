@@ -55,7 +55,7 @@
             {% endif %}
 
             {% for page_number in paginator.page_range %}
-              <li{% ifequal page.number page_number %} class="active"{% endifequal %}>
+              <li{% if page.number == page_number %} class="active"{% endif %}>
                 <a href="{% page_url page=page_number %}">{{ page_number }}</a>
               </li>
             {% endfor %}
