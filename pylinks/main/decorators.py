@@ -51,11 +51,11 @@ def render_to(template=None, content_type=None):
             output = function(request, *args, **kwargs)
             if output and not isinstance(output, dict):
                 return output
-            else:
-                return render(request,
-                    output and output.get('TEMPLATE') or template,
-                    output,
-                    content_type=content_type
-                )
+
+            return render(request,
+                output and output.get('TEMPLATE') or template,
+                output,
+                content_type=content_type
+            )
         return wrapper
     return renderer

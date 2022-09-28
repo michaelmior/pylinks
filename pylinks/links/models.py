@@ -48,8 +48,8 @@ class Link(DatedModel):
             return self.file.cdn_url
         elif self.url:
             return self.url
-        else:
-            return None
+
+        return None
 
     def __str__(self):
         return self.title

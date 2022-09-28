@@ -20,14 +20,14 @@ class LinkFile(File):
     def cdn_url(self):
         if self.s3_path is not None:
             return f'http://s3.amazonaws.com/{settings.AWS_STORAGE_BUCKET_NAME}/media/{self.s3_path}'
-        else:
-            return File.cdn_url.fget(self)
+
+        return File.cdn_url.fget(self)
 
     def __repr__(self):
         if self.uuid is None:
             return f'<LinkFile {self.s3_path}>'
-        else:
-            return f'<LinkFile {self.uuid}>'
+
+        return f'<LinkFile {self.uuid}>'
 
 # Patch FileField to return LinkFile instances
 class LinkFileField(FileField):
