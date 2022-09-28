@@ -21,4 +21,4 @@ whoosh = "*"
 isort = {extras = ["pipfile_deprecated_finder"], version = "5.8.0"}
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
