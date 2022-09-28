@@ -56,24 +56,24 @@ class CategoryListViewTests(ListViewTests):
     def test_category_list(self):
         response = self.client.get('/links/category/a/')
         self.assertQuerysetEqual(response.context['links'], [
-            '<Link: GitHub>',
-            '<Link: Google>'
+            Link.objects.get(title='GitHub'),
+            Link.objects.get(title='Google'),
         ])
 
 class PopularListViewTests(ListViewTests):
     def test_popular_list(self):
         response = self.client.get('/links/popular/')
         self.assertQuerysetEqual(response.context['links'], [
-            '<Link: UW>',
-            '<Link: GitHub>',
-            '<Link: Google>'
+            Link.objects.get(title='UW'),
+            Link.objects.get(title='GitHub'),
+            Link.objects.get(title='Google'),
         ])
 
 class RecentListViewTests(ListViewTests):
     def test_recent_list(self):
         response = self.client.get('/links/recent/')
         self.assertQuerysetEqual(response.context['links'], [
-            '<Link: UW>',
-            '<Link: GitHub>',
-            '<Link: Google>'
+            Link.objects.get(title='UW'),
+            Link.objects.get(title='GitHub'),
+            Link.objects.get(title='Google'),
         ])
