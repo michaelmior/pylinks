@@ -1,4 +1,5 @@
 name: Fly Deploy
+concurrency: deploy
 on: 
   workflow_run:
     workflows:
