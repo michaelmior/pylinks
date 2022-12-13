@@ -51,7 +51,7 @@
                 "sha256:35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3",
                 "sha256:4ad3232f5e926d6718ec31cfc1fcadfde020920e278684144551c91769c7bc18"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_full_version >= '3.6.0'",
             "version": "==2022.12.7"
         },
         "charset-normalizer": {
@@ -59,7 +59,7 @@
                 "sha256:5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845",
                 "sha256:83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_full_version >= '3.6.0'",
             "version": "==2.1.1"
         },
         "dj-database-url": {
@@ -80,11 +80,11 @@
         },
         "django-grappelli": {
             "hashes": [
-                "sha256:7d60304200f4ea202862fda3b0efaa91c70280841ca22b1b22f49f1017ed2afc",
-                "sha256:a98883407f995896f4c4d108ef3ef6cfc00e581211738c5a13c536950a95bcc8"
+                "sha256:344bff45a10bf9fa251d9e0ec724a3ed1bae5dada58bbc1c030421ce9d428a72",
+                "sha256:f2d515de1f58c50b0f723fdf99cea66f4a26a8e9c9229291f8cee47a2dc94110"
             ],
             "index": "pypi",
-            "version": "==3.0.3"
+            "version": "==3.0.4"
         },
         "django-haystack": {
             "hashes": [
@@ -225,7 +225,7 @@
                 "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983",
                 "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_version >= '3.7' and python_version < '4'",
             "version": "==2.28.1"
         },
         "rollbar": {
