@@ -18,7 +18,7 @@ sqlparse = "*"
 whoosh = "*"
 
 [dev-packages]
-isort = {extras = ["pipfile_deprecated_finder"], version = "5.8.0"}
+isort = {extras = ["pipfile_deprecated_finder"], version = "5.11.1"}
 black = "*"
 
 [requires]
