@@ -19,11 +19,11 @@
 <div class="row">
   {% for column in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'|columns:"3" %}
     <div class="col-md-4">
-      <ul class="unstyled">
+      <ul class="unstyled categories-list">
         {% for letter in column %}
-          <li><h3>
+          <li>
             <a href="{% url 'category_alpha' letter=letter page=1 %}">{{ letter }} ({{ letters|get_item:letter }})</a>
-          </h3></li>
+          </li>
         {% endfor %}
       </ul>
     </div>
