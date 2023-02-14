@@ -6,7 +6,6 @@ import pylinks.links.utils
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("links", "0002_auto_20170703_1843"),
     ]
