@@ -9,7 +9,6 @@ else:
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("links", "0001_initial"),
     ]
