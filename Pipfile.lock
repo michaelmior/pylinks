@@ -153,11 +153,11 @@
         },
         "django-grappelli": {
             "hashes": [
-                "sha256:344bff45a10bf9fa251d9e0ec724a3ed1bae5dada58bbc1c030421ce9d428a72",
-                "sha256:f2d515de1f58c50b0f723fdf99cea66f4a26a8e9c9229291f8cee47a2dc94110"
+                "sha256:c299a91551320eebe8fd1bb3e9224a248e72c0b3b90d69f6646a3b683079bd6f",
+                "sha256:f466c484e04309ac7b7a3591ba37b9b49d3055858f2b3739405b2c18d1e975b7"
             ],
             "index": "pypi",
-            "version": "==3.0.4"
+            "version": "==3.0.5"
         },
         "django-haystack": {
             "hashes": [
@@ -300,7 +300,7 @@
                 "sha256:64299f4909223da747622c030b781c0d7811e359c37124b4bd368fb8c6518baa",
                 "sha256:98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_version >= '3.7' and python_version < '4'",
             "version": "==2.28.2"
         },
         "rollbar": {
