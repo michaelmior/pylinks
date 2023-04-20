@@ -1,6 +1,6 @@
 name: Fly Deploy
 concurrency: deploy
-on: 
+on:
   workflow_run:
     workflows:
       - CI
