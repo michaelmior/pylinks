@@ -1,3 +1,5 @@
+# ruff: noqa: E501
+
 from django import template
 from django.conf import settings
 from django.utils.html import escape, mark_safe

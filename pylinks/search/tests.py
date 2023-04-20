@@ -1,9 +1,7 @@
 import haystack
-from django.core.management import call_command
 from django.test import TestCase
 from django.urls import reverse
 
-from pylinks.links import search_indexes
 from pylinks.links.models import Link
 
 

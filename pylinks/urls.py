@@ -1,12 +1,7 @@
 from django.contrib import admin
-from django.contrib.auth.models import Group, User
-from django.contrib.sites.models import Site
 from django.urls import include, re_path
 
 admin.autodiscover()
-# admin.site.unregister(User)
-# admin.site.unregister(Group)
-# admin.site.unregister(Site)
 
 urlpatterns = (
     re_path(r"^feed/", include("pylinks.feeds.urls")),

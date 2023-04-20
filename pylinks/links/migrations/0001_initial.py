@@ -61,7 +61,8 @@ class Migration(migrations.Migration):
                         upload_to=b"uploads/",
                         max_length=500,
                         blank=True,
-                        help_text=b"A file to be uploaded and linked to instead of the URL.",
+                        help_text=b"A file to be uploaded and " \
+                                  b"linked to instead of the URL.",
                         null=True,
                     ),
                 ),

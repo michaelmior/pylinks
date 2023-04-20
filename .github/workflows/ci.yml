@@ -52,8 +52,7 @@ jobs:
       - name: Install pipenv
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
       - run: pipenv install --dev
-      - run: pipenv run isort --check pylinks
-      - run: pipenv run black --check pylinks
+      - run: pipenv run ruff check pylinks
       - run: pipenv run python manage.py collectstatic --noinput
       - run: psql -c 'CREATE DATABASE ci_test;' -h 127.0.0.1 -U postgres
       - run: pipenv run python manage.py test

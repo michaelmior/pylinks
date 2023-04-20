@@ -21,6 +21,8 @@ class SearchView(FacetedSearchView):
             or self.request.GET.get("page")
             or 1
         )
+
+        paginator = Paginator(self.results, self.results_per_page)
         try:
             page_number = int(page)
         except ValueError:
@@ -31,7 +33,6 @@ class SearchView(FacetedSearchView):
                     _("Page is not 'last', nor can it be converted to an int.")
                 )
 
-        paginator = Paginator(self.results, self.results_per_page)
         try:
             page = paginator.page(page_number)
         except InvalidPage:
