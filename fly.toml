@@ -1,44 +1,35 @@
-app = "pseupdate"
+# fly.toml app configuration file generated for pseupdate on 2023-05-26T10:31:16-04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
+app = "pseupdate"
 kill_signal = "SIGINT"
-kill_timeout = 5
-processes = []
+kill_timeout = "5s"
+
+[experimental]
+  auto_rollback = true
 
 [deploy]
   release_command = "bash -c 'pipenv run python manage.py migrate && pipenv run python manage.py update_index'"
 
-[experimental]
-  allowed_public_ports = []
-  auto_rollback = true
-
 [[services]]
-  internal_port = 8000
   protocol = "tcp"
+  internal_port = 8000
 
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
 
-  # [[services.http_checks]]
-  #   interval = "15s"
-  #   grace_period = "5s"
-  #   method = "get"
-  #   path = "/"
-  #   protocol = "http"
-  #   timeout = "2s"
-  #   tls_skip_verify = false
-
-
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
   [services.concurrency]
+    type = "connections"
     hard_limit = 25
     soft_limit = 20
-    type = "connections"
-
-  [[services.ports]]
-    handlers = ["http"]
-    port = 80
-
-  [[services.ports]]
-    handlers = ["tls", "http"]
-    port = 443
 
   [[services.tcp_checks]]
     interval = "15s"
     timeout = "2s"
+    restart_limit = 0
