@@ -49,6 +49,8 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pipenv'
+      - name: Upgrade pip
+        run: pip install --upgrade pip
       - name: Install pipenv
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
       - run: pipenv install --dev
