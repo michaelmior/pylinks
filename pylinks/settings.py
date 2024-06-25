@@ -10,6 +10,8 @@ ALLOWED_HOSTS = os.environ.get("HOSTNAMES", "").split(",")
 SITE_DOMAIN = ALLOWED_HOSTS[0]
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
+if "CSRF_TRUSTED_ORIGINS" in os.environ:
+    CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
 
 db_config = dj_database_url.config()
 db_config["ATOMIC_REQUESTS"] = True
