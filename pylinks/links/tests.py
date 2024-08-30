@@ -53,7 +53,7 @@ class ListViewTests(TestCase):
 class CategoryListViewTests(ListViewTests):
     def test_category_list(self):
         response = self.client.get("/links/category/a/")
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context["links"],
             [
                 Link.objects.get(title="GitHub"),
@@ -65,7 +65,7 @@ class CategoryListViewTests(ListViewTests):
 class PopularListViewTests(ListViewTests):
     def test_popular_list(self):
         response = self.client.get("/links/popular/")
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context["links"],
             [
                 Link.objects.get(title="UW"),
@@ -78,7 +78,7 @@ class PopularListViewTests(ListViewTests):
 class RecentListViewTests(ListViewTests):
     def test_recent_list(self):
         response = self.client.get("/links/recent/")
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context["links"],
             [
                 Link.objects.get(title="UW"),
