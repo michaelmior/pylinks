@@ -11,7 +11,7 @@ kill_timeout = "5s"
   auto_rollback = true
 
 [deploy]
-  release_command = "bash -c 'pipenv run python manage.py migrate && pipenv run python manage.py update_index'"
+  release_command = "bash -c 'uv run python manage.py migrate && uv run python manage.py update_index'"
 
 [[services]]
   protocol = "tcp"
