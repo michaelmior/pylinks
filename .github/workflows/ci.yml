@@ -42,7 +42,7 @@ jobs:
           - 5432:5432
     steps:
       - run: git config --global core.autocrlf input
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - uses: astral-sh/setup-uv@v5
