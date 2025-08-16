@@ -1,9 +1,10 @@
-FROM python:3.11-slim-buster
-ENV LANG C.UTF-8
+# syntax=docker/dockerfile:1
+# check=skip=SecretsUsedInArgOrEnv
 
-RUN apt-get update && apt-get install -y \
-  curl \
-  && rm -rf /var/lib/apt/lists/*
+FROM python:3.13.7-alpine3.22
+ENV LANG=C.UTF-8
+
+RUN apk add --no-cache curl
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
 
