@@ -3,7 +3,7 @@ name = "pylinks"
 version = "0.1.0"
 description = "Searchable database of external links in Python"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
     "asgiref",
     "certifi",
