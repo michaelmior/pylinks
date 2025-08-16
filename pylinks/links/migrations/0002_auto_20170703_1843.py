@@ -1,11 +1,5 @@
-import os
-
 from django.db import migrations
-
-if not os.environ.get("UPLOADCARE_DISABLED", False):
-    from pylinks.links.utils import LinkFileField
-else:
-    from django.db.models import FileField as LinkFileField
+from django.db.models import FileField as LinkFileField
 
 
 class Migration(migrations.Migration):

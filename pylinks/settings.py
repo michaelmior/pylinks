@@ -139,9 +139,6 @@ INSTALLED_APPS = [
     "gunicorn",
 ]
 
-if os.environ.get("UPLOADCARE_SECRET"):
-    INSTALLED_APPS.append("pyuploadcare.dj")
-
 GRAPPELLI_ADMIN_TITLE = "Link database"
 
 # A sample logging configuration. The only tangible logging
@@ -183,12 +180,5 @@ if os.environ.get("ROLLBAR_ACCESS_TOKEN"):
         "branch": "master",
         "root": os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)),
     }
-
-# Note that uploads will not work if these are not set, but we need to be
-# able to run without specified values so we can build the app image
-UPLOADCARE = {
-    "pub_key": os.environ.get("UPLOADCARE_PUB_KEY"),
-    "secret": os.environ.get("UPLOADCARE_SECRET"),
-}
 
 GA_PROPERTY_ID = os.environ.get("GA_PROPERTY_ID", None)

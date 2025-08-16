@@ -1,14 +1,8 @@
-import os
-
 from django.db import models
+from django.db.models import FileField as LinkFileField
 from django.urls import reverse
 
 from pylinks.main.models import DatedModel
-
-if not os.environ.get("UPLOADCARE_DISABLED", False):
-    from pylinks.links.utils import LinkFileField
-else:
-    from django.db.models import FileField as LinkFileField
 
 
 class Category(DatedModel):

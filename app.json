@@ -7,12 +7,6 @@
     "HOSTNAMES": {
       "description": "A comma-separated list of hostnames where the app will be accessed used to prevent request forgery"
     },
-    "UPLOADCARE_PUB_KEY": {
-        "description": "Uploadcare public key"
-    },
-    "UPLOADCARE_SECRET": {
-        "description": "Uploadcare secret key"
-    },
     "DJANGO_SECRET_KEY": {
       "description": "A randomly generated secret to secure your Django installation",
       "generator": "secret"
@@ -38,7 +32,6 @@
     "test": {
       "env": {
         "DJANGO_DEBUG": 1,
-        "UPLOADCARE_DISABLED": 1,
         "ROLLBAR_DISABLED": 1,
         "DJANGO_SECRET_KEY": "foo",
         "HOSTNAMES": "localhost"
