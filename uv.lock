@@ -337,7 +337,6 @@ dependencies = [
     { name = "packaging" },
     { name = "psycopg2-binary" },
     { name = "python-dateutil" },
-    { name = "pyuploadcare" },
     { name = "requests" },
     { name = "rollbar" },
     { name = "six" },
@@ -370,7 +369,6 @@ requires-dist = [
     { name = "packaging" },
     { name = "psycopg2-binary" },
     { name = "python-dateutil" },
-    { name = "pyuploadcare" },
     { name = "requests" },
     { name = "rollbar" },
     { name = "six" },
@@ -399,17 +397,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115
 wheels = [
     { url = "https://files.pythonhosted.org/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9", size = 247702 },
 ]
-
-[[package]]
-name = "pyuploadcare"
-version = "2.7.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "python-dateutil" },
-    { name = "requests" },
-    { name = "six" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/56/5c/654a7c56b5a388705bf7e3abb5bcc5f49feccc8fe2327407fce1b1ea2224/pyuploadcare-2.7.0.tar.gz", hash = "sha256:86c2af5e86e4f59d77cc966bddf9a4f4dc3f6c7927855fbe21c0ca43aea01042", size = 226464 }
 
 [[package]]
 name = "pyyaml"

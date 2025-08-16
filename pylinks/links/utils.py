@@ -1,8 +1,7 @@
 from django.conf import settings
 from django.core.exceptions import ValidationError
-from pyuploadcare.api_resources import UUID_WITH_EFFECTS_REGEX, File
-from pyuploadcare.dj.models import FileField
-from pyuploadcare.exceptions import InvalidRequestError
+from django.core.files import File
+from django.db.models import FileField
 
 
 # Patch File to pass through S3 URLs
@@ -46,10 +45,4 @@ class LinkFileField(FileField):
         if not isinstance(value, str):
             raise ValidationError("Invalid value for a field: string was expected")
 
-        if not UUID_WITH_EFFECTS_REGEX.search(value):
-            return None
-
-        try:
-            return LinkFile(value)
-        except InvalidRequestError as exc:
-            raise ValidationError(f"Invalid value for a field: {exc}")
+        return LinkFile(value)
