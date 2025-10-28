@@ -5,25 +5,14 @@ description = "Searchable database of external links in Python"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "asgiref",
-    "certifi",
-    "charset-normalizer",
     "dj-database-url",
     "django",
     "django-grappelli",
     "django-haystack",
     "gunicorn",
-    "idna",
     "newrelic",
-    "packaging",
     "psycopg2-binary",
-    "python-dateutil",
-    "requests",
     "rollbar",
-    "six",
-    "sqlparse",
-    "typing-extensions",
-    "urllib3",
     "whitenoise",
     "whoosh",
 ]
