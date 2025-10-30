@@ -1,23 +1,13 @@
 name: CI
-on: [push, pull_request]
-jobs:
-  pre_job:
-    name: Check duplicate
-    runs-on: ubuntu-latest
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@04a1aebece824b56e6ad6a401d015479cd1c50b3
-        with:
-          cancel_others: true
-          concurrent_skipping: same_content
-          do_not_skip: '["pull_request", "schedule", "workflow_dispatch"]'
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
+jobs:
   build:
     name: Test
-    needs: pre_job
-    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
     env:
       DJANGO_SECRET_KEY: 'dummy'
