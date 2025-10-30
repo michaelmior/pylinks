@@ -23,3 +23,6 @@ dev-dependencies = [
     "ruff",
     "pre-commit",
 ]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
