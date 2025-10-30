@@ -13,6 +13,9 @@ class BaseFeed(Feed):
     def item_guid(self, item):
         return str(item.pk)
 
+    def item_title(self, item):
+        return control_re.sub("", item.title)
+
     def item_description(self, item):
         return control_re.sub("", item.description)
 
