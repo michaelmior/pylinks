@@ -4,7 +4,7 @@
 FROM python:3.14.0-alpine3.22
 ENV LANG=C.UTF-8
 
-RUN apk add --no-cache curl libpq postgresql-dev 
+RUN apk add --no-cache curl libpq postgresql-dev
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
 
