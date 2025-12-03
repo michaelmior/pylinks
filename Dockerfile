@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 # check=skip=SecretsUsedInArgOrEnv
 
-FROM python:3.14.0-alpine3.22
+FROM python:3.14.1-alpine3.22
 ENV LANG=C.UTF-8
 
 RUN apk add --no-cache curl libpq postgresql-dev
