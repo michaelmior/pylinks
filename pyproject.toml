@@ -17,8 +17,8 @@ dependencies = [
     "whoosh>=2.7,<3",
 ]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "black",
     "ruff",
     "pre-commit",
